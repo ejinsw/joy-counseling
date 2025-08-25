@@ -2,7 +2,7 @@
   "id": "contact_form",
   "type": "SharedSlice",
   "name": "ContactForm",
-  "description": "Contact form for inquiries",
+  "description": "Contact form with customizable fields, styling, and contact information",
   "variations": [
     {
       "id": "default",
@@ -26,18 +26,141 @@
             "placeholder": "Ready to start your healing journey?"
           }
         },
-        "contact_info": {
-          "type": "StructuredText",
+        "background_color": {
+          "type": "Color",
           "config": {
-            "label": "Contact Information",
-            "placeholder": "Phone, email, address...",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item",
-            "labels": ["codespan"]
+            "label": "Background Color",
+            "placeholder": "Choose background color for the section"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Text Color",
+            "placeholder": "Choose text color for good contrast"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Accent Color",
+            "placeholder": "Choose accent color for buttons and highlights"
+          }
+        },
+        "layout": {
+          "type": "Select",
+          "config": {
+            "label": "Layout Style",
+            "options": [
+              "form-left",
+              "form-right",
+              "centered",
+              "split"
+            ]
+          }
+        },
+        "show_contact_info": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Contact Information",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "form_submit_text": {
+          "type": "Text",
+          "config": {
+            "label": "Form Submit Button Text",
+            "placeholder": "Send Message"
+          }
+        },
+        "success_message": {
+          "type": "Text",
+          "config": {
+            "label": "Success Message",
+            "placeholder": "Thank you! We'll get back to you soon."
+          }
+        },
+        "contact_info_title": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Info Title",
+            "placeholder": "Contact Information"
           }
         }
       },
-      "items": {}
+      "items": {
+        "contact_field": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Field Type",
+            "placeholder": "text"
+          }
+        },
+        "field_label": {
+          "type": "Text",
+          "config": {
+            "label": "Field Label",
+            "placeholder": "Full Name"
+          }
+        },
+        "field_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Field Placeholder",
+            "placeholder": "Enter your full name"
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required Field",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "field_options": {
+          "type": "Text",
+          "config": {
+            "label": "Field Options (for select fields)",
+            "placeholder": "Option 1, Option 2, Option 3"
+          }
+        },
+        "contact_info_icon": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Info Icon",
+            "placeholder": "phone"
+          }
+        },
+        "contact_info_title": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Info Title",
+            "placeholder": "Phone"
+          }
+        },
+        "contact_info_content": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Info Content",
+            "placeholder": "+1 (555) 123-4567"
+          }
+        },
+        "contact_info_link": {
+          "type": "Link",
+          "config": {
+            "label": "Contact Info Link (optional)",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
+        }
+      }
     }
   ]
 }

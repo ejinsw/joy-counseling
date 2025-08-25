@@ -139,7 +139,93 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = PageDocument;
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+	/**
+	 * Site Name field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.site_name
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	site_name: prismic.KeyTextField;
+
+	/**
+	 * Tagline field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.tagline
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	tagline: prismic.KeyTextField;
+
+	/**
+	 * Email field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.email
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	email: prismic.KeyTextField;
+
+	/**
+	 * Phone field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.phone
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	phone: prismic.KeyTextField;
+
+	/**
+	 * Address field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.address
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	address: prismic.KeyTextField;
+
+	/**
+	 * Logo field in *Settings*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.logo
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	logo: prismic.ImageField<never>;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<SettingsDocumentData>,
+	'settings',
+	Lang
+>;
+
+export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
  * Primary content in *AboutSection → Default → Primary*
@@ -154,6 +240,16 @@ export interface AboutSectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Your journey to healing and growth starts here
+	 * - **API ID Path**: about_section.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
 
 	/**
 	 * Content field in *AboutSection → Default → Primary*
@@ -174,17 +270,6 @@ export interface AboutSectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	image: prismic.ImageField<never>;
-
-	/**
-	 * Image Position field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: left
-	 * - **API ID Path**: about_section.default.primary.image_position
-	 * - **Documentation**: https://prismic.io/docs/fields/select
-	 */
-	image_position: prismic.SelectField<'left' | 'right', 'filled'>;
 }
 
 /**
@@ -209,7 +294,7 @@ type AboutSectionSliceVariation = AboutSectionSliceDefault;
  * AboutSection Shared Slice
  *
  * - **API ID**: `about_section`
- * - **Description**: About section with image and text
+ * - **Description**: About section with image and text content
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type AboutSectionSlice = prismic.SharedSlice<'about_section', AboutSectionSliceVariation>;
@@ -239,14 +324,181 @@ export interface ContactFormSliceDefaultPrimary {
 	subtitle: prismic.KeyTextField;
 
 	/**
-	 * Contact Information field in *ContactForm → Default → Primary*
+	 * Background Color field in *ContactForm → Default → Primary*
 	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Phone, email, address...
-	 * - **API ID Path**: contact_form.default.primary.contact_info
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose background color for the section
+	 * - **API ID Path**: contact_form.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
 	 */
-	contact_info: prismic.RichTextField;
+	background_color: prismic.ColorField;
+
+	/**
+	 * Text Color field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose text color for good contrast
+	 * - **API ID Path**: contact_form.default.primary.text_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	text_color: prismic.ColorField;
+
+	/**
+	 * Accent Color field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose accent color for buttons and highlights
+	 * - **API ID Path**: contact_form.default.primary.accent_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	accent_color: prismic.ColorField;
+
+	/**
+	 * Layout Style field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.default.primary.layout
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	layout: prismic.SelectField<'form-left' | 'form-right' | 'centered' | 'split'>;
+
+	/**
+	 * Show Contact Information field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: contact_form.default.primary.show_contact_info
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	show_contact_info: prismic.BooleanField;
+
+	/**
+	 * Form Submit Button Text field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Send Message
+	 * - **API ID Path**: contact_form.default.primary.form_submit_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	form_submit_text: prismic.KeyTextField;
+
+	/**
+	 * Success Message field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Thank you! We'll get back to you soon.
+	 * - **API ID Path**: contact_form.default.primary.success_message
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	success_message: prismic.KeyTextField;
+
+	/**
+	 * Contact Info Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Contact Information
+	 * - **API ID Path**: contact_form.default.primary.contact_info_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_info_title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ContactForm → Items*
+ */
+export interface ContactFormSliceDefaultItem {
+	/**
+	 * Contact Field Type field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: text
+	 * - **API ID Path**: contact_form.items[].contact_field
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_field: prismic.KeyTextField;
+
+	/**
+	 * Field Label field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Full Name
+	 * - **API ID Path**: contact_form.items[].field_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	field_label: prismic.KeyTextField;
+
+	/**
+	 * Field Placeholder field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Enter your full name
+	 * - **API ID Path**: contact_form.items[].field_placeholder
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	field_placeholder: prismic.KeyTextField;
+
+	/**
+	 * Required Field field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: contact_form.items[].required
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	required: prismic.BooleanField;
+
+	/**
+	 * Field Options (for select fields) field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Option 1, Option 2, Option 3
+	 * - **API ID Path**: contact_form.items[].field_options
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	field_options: prismic.KeyTextField;
+
+	/**
+	 * Contact Info Icon field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: phone
+	 * - **API ID Path**: contact_form.items[].contact_info_icon
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_info_icon: prismic.KeyTextField;
+
+	/**
+	 * Contact Info Title field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Phone
+	 * - **API ID Path**: contact_form.items[].contact_info_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_info_title: prismic.KeyTextField;
+
+	/**
+	 * Contact Info Content field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: +1 (555) 123-4567
+	 * - **API ID Path**: contact_form.items[].contact_info_content
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_info_content: prismic.KeyTextField;
+
+	/**
+	 * Contact Info Link (optional) field in *ContactForm → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.items[].contact_info_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	contact_info_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -259,7 +511,7 @@ export interface ContactFormSliceDefaultPrimary {
 export type ContactFormSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<ContactFormSliceDefaultPrimary>,
-	never
+	Simplify<ContactFormSliceDefaultItem>
 >;
 
 /**
@@ -271,7 +523,7 @@ type ContactFormSliceVariation = ContactFormSliceDefault;
  * ContactForm Shared Slice
  *
  * - **API ID**: `contact_form`
- * - **Description**: Contact form for inquiries
+ * - **Description**: Contact form with customizable fields, styling, and contact information
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
@@ -299,6 +551,126 @@ export interface FaqSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Background Color field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose background color for the section
+	 * - **API ID Path**: faq.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	background_color: prismic.ColorField;
+
+	/**
+	 * Text Color field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose text color for good contrast
+	 * - **API ID Path**: faq.default.primary.text_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	text_color: prismic.ColorField;
+
+	/**
+	 * Accent Color field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose accent color for highlights and icons
+	 * - **API ID Path**: faq.default.primary.accent_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	accent_color: prismic.ColorField;
+
+	/**
+	 * Layout Style field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq.default.primary.layout
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	layout: prismic.SelectField<'accordion' | 'list' | 'grid-2'>;
+
+	/**
+	 * Expand All by Default field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: faq.default.primary.expand_all
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	expand_all: prismic.BooleanField;
+
+	/**
+	 * Show Expand/Collapse Icons field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: faq.default.primary.show_icons
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	show_icons: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *FAQ → Items*
+ */
+export interface FaqSliceDefaultItem {
+	/**
+	 * Question field in *FAQ → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: What can I expect in my first session?
+	 * - **API ID Path**: faq.items[].question
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	question: prismic.KeyTextField;
+
+	/**
+	 * Answer field in *FAQ → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Provide a detailed answer to the question
+	 * - **API ID Path**: faq.items[].answer
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	answer: prismic.RichTextField;
+
+	/**
+	 * FAQ Category field in *FAQ → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq.items[].category
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	category: prismic.SelectField<
+		'general' | 'services' | 'pricing' | 'scheduling' | 'what-to-expect' | 'confidentiality'
+	>;
+
+	/**
+	 * Featured Question field in *FAQ → Items*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: faq.items[].featured
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	featured: prismic.BooleanField;
+
+	/**
+	 * Display Order field in *FAQ → Items*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: 1
+	 * - **API ID Path**: faq.items[].order
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	order: prismic.NumberField;
 }
 
 /**
@@ -311,7 +683,7 @@ export interface FaqSliceDefaultPrimary {
 export type FaqSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<FaqSliceDefaultPrimary>,
-	never
+	Simplify<FaqSliceDefaultItem>
 >;
 
 /**
@@ -323,10 +695,220 @@ type FaqSliceVariation = FaqSliceDefault;
  * FAQ Shared Slice
  *
  * - **API ID**: `faq`
- * - **Description**: Frequently asked questions
+ * - **Description**: Frequently asked questions with expandable content and customizable styling
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>;
+
+/**
+ * Item in *FieldsExample → Default → Primary → repeatable_group_label*
+ */
+export interface FieldsExampleSliceDefaultPrimaryRepeatableGroupLabelItem {
+	/**
+	 * text_in_group_label field in *FieldsExample → Default → Primary → repeatable_group_label*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.repeatable_group_label[].text_in_group_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text_in_group_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FieldsExample → Default → Primary*
+ */
+export interface FieldsExampleSliceDefaultPrimary {
+	/**
+	 * image_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.image_label
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image_label: prismic.ImageField<never>;
+
+	/**
+	 * text_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.text_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text_label: prismic.KeyTextField;
+
+	/**
+	 * rich_text_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.rich_text_label
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	rich_text_label: prismic.RichTextField;
+
+	/**
+	 * link_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.link_label
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link_label: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * select_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.select_label
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	select_label: prismic.SelectField<'1' | '2'>;
+
+	/**
+	 * boolean_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: fields_example.default.primary.boolean_label
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	boolean_label: prismic.BooleanField;
+
+	/**
+	 * number_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.number_label
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	number_label: prismic.NumberField;
+
+	/**
+	 * color_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.color_label
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	color_label: prismic.ColorField;
+
+	/**
+	 * date_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.date_label
+	 * - **Documentation**: https://prismic.io/docs/fields/date
+	 */
+	date_label: prismic.DateField;
+
+	/**
+	 * table_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Table
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.table_label
+	 * - **Documentation**: https://prismic.io/docs/fields/table
+	 */
+	table_label: prismic.TableField;
+
+	/**
+	 * embed_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Embed
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.embed_label
+	 * - **Documentation**: https://prismic.io/docs/fields/embed
+	 */
+	embed_label: prismic.EmbedField;
+
+	/**
+	 * timestamp_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Timestamp
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.timestamp_label
+	 * - **Documentation**: https://prismic.io/docs/fields/timestamp
+	 */
+	timestamp_label: prismic.TimestampField;
+
+	/**
+	 * geopoint_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: GeoPoint
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.geopoint_label
+	 * - **Documentation**: https://prismic.io/docs/fields/geopoint
+	 */
+	geopoint_label: prismic.GeoPointField;
+
+	/**
+	 * content_relationship_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.content_relationship_label
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	content_relationship_label: prismic.ContentRelationshipField<'page'>;
+
+	/**
+	 * link_to_media_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Link to Media
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.link_to_media_label
+	 * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+	 */
+	link_to_media_label: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+	/**
+	 * repeatable_group_label field in *FieldsExample → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: fields_example.default.primary.repeatable_group_label[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	repeatable_group_label: prismic.GroupField<
+		Simplify<FieldsExampleSliceDefaultPrimaryRepeatableGroupLabelItem>
+	>;
+}
+
+/**
+ * Default variation for FieldsExample Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FieldsExampleSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<FieldsExampleSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *FieldsExample*
+ */
+type FieldsExampleSliceVariation = FieldsExampleSliceDefault;
+
+/**
+ * FieldsExample Shared Slice
+ *
+ * - **API ID**: `fields_example`
+ * - **Description**: FieldsExample
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FieldsExampleSlice = prismic.SharedSlice<'fields_example', FieldsExampleSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -336,7 +918,7 @@ export interface HeroSliceDefaultPrimary {
 	 * Main Headline field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Won Counseling
+	 * - **Placeholder**: Find Joy in Your Journey
 	 * - **API ID Path**: hero.default.primary.main_headline
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
@@ -346,11 +928,31 @@ export interface HeroSliceDefaultPrimary {
 	 * Sub Headline field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Get help today.
+	 * - **Placeholder**: Professional counseling to help you heal, grow, and rediscover happiness
 	 * - **API ID Path**: hero.default.primary.sub_headline
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	sub_headline: prismic.KeyTextField;
+
+	/**
+	 * Description field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Brief description of your counseling approach and mission
+	 * - **API ID Path**: hero.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+
+	/**
+	 * Call to Action Button Text field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Schedule a Session
+	 * - **API ID Path**: hero.default.primary.call_to_action_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	call_to_action_text: prismic.KeyTextField;
 
 	/**
 	 * Call To Action Link field in *Hero → Default → Primary*
@@ -361,6 +963,26 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	call_to_action_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Secondary Button Text field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Learn More
+	 * - **API ID Path**: hero.default.primary.secondary_button_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	secondary_button_text: prismic.KeyTextField;
+
+	/**
+	 * Secondary Button Link field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.secondary_button_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	secondary_button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -385,7 +1007,7 @@ type HeroSliceVariation = HeroSliceDefault;
  * Hero Shared Slice
  *
  * - **API ID**: `hero`
- * - **Description**: Hero
+ * - **Description**: Hero section with main content and call-to-action
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
@@ -458,6 +1080,72 @@ export interface ServicesSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *Services → Items*
+ */
+export interface ServicesSliceDefaultItem {
+	/**
+	 * Service Title field in *Services → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Individual Therapy
+	 * - **API ID Path**: services.items[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Service Description field in *Services → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Describe what this service offers and how it helps clients
+	 * - **API ID Path**: services.items[].description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+
+	/**
+	 * Service Icon field in *Services → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.items[].icon
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	icon: prismic.SelectField<
+		| 'heart'
+		| 'brain'
+		| 'conversation'
+		| 'growth'
+		| 'family'
+		| 'couple'
+		| 'mindfulness'
+		| 'healing'
+		| 'support'
+		| 'wellness'
+	>;
+
+	/**
+	 * Call to Action Text field in *Services → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Book Session
+	 * - **API ID Path**: services.items[].cta_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	cta_text: prismic.KeyTextField;
+
+	/**
+	 * Call to Action Link field in *Services → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.items[].cta_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Default variation for Services Slice
  *
  * - **API ID**: `default`
@@ -467,7 +1155,7 @@ export interface ServicesSliceDefaultPrimary {
 export type ServicesSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<ServicesSliceDefaultPrimary>,
-	never
+	Simplify<ServicesSliceDefaultItem>
 >;
 
 /**
@@ -507,6 +1195,155 @@ export interface TestimonialsSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Background Color field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose background color for the section
+	 * - **API ID Path**: testimonials.default.primary.background_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	background_color: prismic.ColorField;
+
+	/**
+	 * Text Color field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose text color for good contrast
+	 * - **API ID Path**: testimonials.default.primary.text_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	text_color: prismic.ColorField;
+
+	/**
+	 * Accent Color field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: Choose accent color for highlights and ratings
+	 * - **API ID Path**: testimonials.default.primary.accent_color
+	 * - **Documentation**: https://prismic.io/docs/fields/color
+	 */
+	accent_color: prismic.ColorField;
+
+	/**
+	 * Layout Style field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.layout
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	layout: prismic.SelectField<'grid-2' | 'grid-3' | 'carousel' | 'list'>;
+
+	/**
+	 * Show Star Ratings field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: testimonials.default.primary.show_ratings
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	show_ratings: prismic.BooleanField;
+
+	/**
+	 * Show Client Photos field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: testimonials.default.primary.show_client_photos
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	show_client_photos: prismic.BooleanField;
+
+	/**
+	 * Auto-rotate Carousel field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: testimonials.default.primary.auto_rotate
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	auto_rotate: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *Testimonials → Items*
+ */
+export interface TestimonialsSliceDefaultItem {
+	/**
+	 * Client Name field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Sarah Johnson
+	 * - **API ID Path**: testimonials.items[].client_name
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	client_name: prismic.KeyTextField;
+
+	/**
+	 * Client Photo field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.items[].client_photo
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	client_photo: prismic.ImageField<never>;
+
+	/**
+	 * Star Rating field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.items[].rating
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	rating: prismic.SelectField<'5' | '4' | '3' | '2' | '1'>;
+
+	/**
+	 * Testimonial Text field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Share what the client said about their experience
+	 * - **API ID Path**: testimonials.items[].testimonial_text
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	testimonial_text: prismic.RichTextField;
+
+	/**
+	 * Service Received field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Individual Therapy
+	 * - **API ID Path**: testimonials.items[].service_received
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	service_received: prismic.KeyTextField;
+
+	/**
+	 * Session Date field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: When this testimonial was given
+	 * - **API ID Path**: testimonials.items[].session_date
+	 * - **Documentation**: https://prismic.io/docs/fields/date
+	 */
+	session_date: prismic.DateField;
+
+	/**
+	 * Featured Testimonial field in *Testimonials → Items*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: testimonials.items[].featured
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	featured: prismic.BooleanField;
 }
 
 /**
@@ -519,7 +1356,7 @@ export interface TestimonialsSliceDefaultPrimary {
 export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<TestimonialsSliceDefaultPrimary>,
-	never
+	Simplify<TestimonialsSliceDefaultItem>
 >;
 
 /**
@@ -531,7 +1368,7 @@ type TestimonialsSliceVariation = TestimonialsSliceDefault;
  * Testimonials Shared Slice
  *
  * - **API ID**: `testimonials`
- * - **Description**: Client testimonials and reviews
+ * - **Description**: Client testimonials and reviews with customizable styling and layout
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type TestimonialsSlice = prismic.SharedSlice<'testimonials', TestimonialsSliceVariation>;
@@ -560,6 +1397,8 @@ declare module '@prismicio/client' {
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
+			SettingsDocument,
+			SettingsDocumentData,
 			AllDocumentTypes,
 			AboutSectionSlice,
 			AboutSectionSliceDefaultPrimary,
@@ -567,12 +1406,19 @@ declare module '@prismicio/client' {
 			AboutSectionSliceDefault,
 			ContactFormSlice,
 			ContactFormSliceDefaultPrimary,
+			ContactFormSliceDefaultItem,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
 			FaqSlice,
 			FaqSliceDefaultPrimary,
+			FaqSliceDefaultItem,
 			FaqSliceVariation,
 			FaqSliceDefault,
+			FieldsExampleSlice,
+			FieldsExampleSliceDefaultPrimaryRepeatableGroupLabelItem,
+			FieldsExampleSliceDefaultPrimary,
+			FieldsExampleSliceVariation,
+			FieldsExampleSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
@@ -583,10 +1429,12 @@ declare module '@prismicio/client' {
 			RichTextSliceDefault,
 			ServicesSlice,
 			ServicesSliceDefaultPrimary,
+			ServicesSliceDefaultItem,
 			ServicesSliceVariation,
 			ServicesSliceDefault,
 			TestimonialsSlice,
 			TestimonialsSliceDefaultPrimary,
+			TestimonialsSliceDefaultItem,
 			TestimonialsSliceVariation,
 			TestimonialsSliceDefault
 		};

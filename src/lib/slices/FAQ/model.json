@@ -2,7 +2,7 @@
   "id": "faq",
   "type": "SharedSlice",
   "name": "FAQ",
-  "description": "Frequently asked questions",
+  "description": "Frequently asked questions with expandable content and customizable styling",
   "variations": [
     {
       "id": "default",
@@ -25,9 +25,106 @@
             "label": "Subtitle",
             "placeholder": "Common questions about our services"
           }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "Choose background color for the section"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Text Color",
+            "placeholder": "Choose text color for good contrast"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Accent Color",
+            "placeholder": "Choose accent color for highlights and icons"
+          }
+        },
+        "layout": {
+          "type": "Select",
+          "config": {
+            "label": "Layout Style",
+            "options": [
+              "accordion",
+              "list",
+              "grid-2"
+            ]
+          }
+        },
+        "expand_all": {
+          "type": "Boolean",
+          "config": {
+            "label": "Expand All by Default",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "show_icons": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Expand/Collapse Icons",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
         }
       },
-      "items": {}
+      "items": {
+        "question": {
+          "type": "Text",
+          "config": {
+            "label": "Question",
+            "placeholder": "What can I expect in my first session?"
+          }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Answer",
+            "placeholder": "Provide a detailed answer to the question",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+          }
+        },
+        "category": {
+          "type": "Select",
+          "config": {
+            "label": "FAQ Category",
+            "options": [
+              "general",
+              "services",
+              "pricing",
+              "scheduling",
+              "what-to-expect",
+              "confidentiality"
+            ]
+          }
+        },
+        "featured": {
+          "type": "Boolean",
+          "config": {
+            "label": "Featured Question",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "order": {
+          "type": "Number",
+          "config": {
+            "label": "Display Order",
+            "placeholder": "1"
+          }
+        }
+      }
     }
   ]
 }

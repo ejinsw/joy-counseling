@@ -3,6 +3,16 @@ import { asText } from '@prismicio/client';
 import { createClient } from '$lib/prismicio';
 
 export async function load({ params, fetch, cookies }) {
+    // Ignore favicon and non-content requests hitting this route
+    if (params.uid === 'favicon.ico') {
+        return {
+            page: null,
+            title: 'Not Found',
+            meta_description: null,
+            meta_title: null,
+            meta_image: null
+        };
+    }
 	const client = createClient({ fetch, cookies });
 
 	const page = await client.getByUID('page', params.uid);

@@ -1,0 +1,157 @@
+{
+  "id": "fields_example",
+  "type": "SharedSlice",
+  "name": "FieldsExample",
+  "description": "FieldsExample",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_label": {
+          "type": "Image",
+          "config": {
+            "label": "image_label",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "text_label": {
+          "type": "Text",
+          "config": {
+            "label": "text_label",
+            "placeholder": ""
+          }
+        },
+        "rich_text_label": {
+          "type": "StructuredText",
+          "config": {
+            "label": "rich_text_label",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "link_label": {
+          "type": "Link",
+          "config": {
+            "label": "link_label",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "select_label": {
+          "type": "Select",
+          "config": {
+            "label": "select_label",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2"
+            ]
+          }
+        },
+        "boolean_label": {
+          "type": "Boolean",
+          "config": {
+            "label": "boolean_label",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "number_label": {
+          "type": "Number",
+          "config": {
+            "label": "number_label",
+            "placeholder": ""
+          }
+        },
+        "color_label": {
+          "type": "Color",
+          "config": {
+            "label": "color_label",
+            "placeholder": ""
+          }
+        },
+        "date_label": {
+          "type": "Date",
+          "config": {
+            "label": "date_label",
+            "placeholder": ""
+          }
+        },
+        "table_label": {
+          "type": "Table",
+          "config": {
+            "label": "table_label"
+          }
+        },
+        "embed_label": {
+          "type": "Embed",
+          "config": {
+            "label": "embed_label",
+            "placeholder": ""
+          }
+        },
+        "timestamp_label": {
+          "type": "Timestamp",
+          "config": {
+            "label": "timestamp_label",
+            "placeholder": ""
+          }
+        },
+        "geopoint_label": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "geopoint_label"
+          }
+        },
+        "content_relationship_label": {
+          "type": "Link",
+          "config": {
+            "label": "content_relationship_label",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "page"
+            ]
+          }
+        },
+        "link_to_media_label": {
+          "type": "Link",
+          "config": {
+            "label": "link_to_media_label",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "repeatable_group_label": {
+          "type": "Group",
+          "config": {
+            "label": "repeatable_group_label",
+            "repeat": true,
+            "fields": {
+              "text_in_group_label": {
+                "type": "Text",
+                "config": {
+                  "label": "text_in_group_label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

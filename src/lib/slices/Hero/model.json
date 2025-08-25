@@ -2,7 +2,7 @@
   "id": "hero",
   "type": "SharedSlice",
   "name": "Hero",
-  "description": "Hero",
+  "description": "Hero section with main content and call-to-action",
   "variations": [
     {
       "id": "default",
@@ -16,20 +16,54 @@
           "type": "Text",
           "config": {
             "label": "Main Headline",
-            "placeholder": "Won Counseling"
+            "placeholder": "Find Joy in Your Journey"
           }
         },
         "sub_headline": {
           "type": "Text",
           "config": {
             "label": "Sub Headline",
-            "placeholder": "Get help today."
+            "placeholder": "Professional counseling to help you heal, grow, and rediscover happiness"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Brief description of your counseling approach and mission",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+          }
+        },
+        "call_to_action_text": {
+          "type": "Text",
+          "config": {
+            "label": "Call to Action Button Text",
+            "placeholder": "Schedule a Session"
           }
         },
         "call_to_action_link": {
           "type": "Link",
           "config": {
             "label": "Call To Action Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
+        },
+        "secondary_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Button Text",
+            "placeholder": "Learn More"
+          }
+        },
+        "secondary_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Button Link",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": false,

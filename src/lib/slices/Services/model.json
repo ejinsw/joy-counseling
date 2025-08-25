@@ -27,7 +27,60 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Service Title",
+            "placeholder": "Individual Therapy"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Service Description",
+            "placeholder": "Describe what this service offers and how it helps clients",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+          }
+        },
+        "icon": {
+          "type": "Select",
+          "config": {
+            "label": "Service Icon",
+            "options": [
+              "heart",
+              "brain",
+              "conversation",
+              "growth",
+              "family",
+              "couple",
+              "mindfulness",
+              "healing",
+              "support",
+              "wellness"
+            ]
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "Call to Action Text",
+            "placeholder": "Book Session"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Call to Action Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
+        }
+      }
     }
   ]
 }

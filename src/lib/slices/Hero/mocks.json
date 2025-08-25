@@ -14,8 +14,8 @@
 				"type": "Text"
 			},
 			"call_to_action_link": {
-				"__TYPE__": "LinkContent",
 				"key": "002d789f-b065-4fc2-989f-22c678d2450d",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com"

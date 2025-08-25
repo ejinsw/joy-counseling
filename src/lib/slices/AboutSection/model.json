@@ -2,7 +2,7 @@
   "id": "about_section",
   "type": "SharedSlice",
   "name": "AboutSection",
-  "description": "About section with image and text",
+  "description": "About section with image and text content",
   "variations": [
     {
       "id": "default",
@@ -19,14 +19,20 @@
             "placeholder": "About Us"
           }
         },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "Your journey to healing and growth starts here"
+          }
+        },
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
             "placeholder": "Share your story and mission...",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item",
-            "labels": ["codespan"]
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
           }
         },
         "image": {
@@ -35,17 +41,6 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
-          }
-        },
-        "image_position": {
-          "type": "Select",
-          "config": {
-            "label": "Image Position",
-            "options": [
-              "left",
-              "right"
-            ],
-            "default_value": "left"
           }
         }
       },

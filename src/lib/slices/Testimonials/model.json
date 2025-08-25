@@ -2,7 +2,7 @@
   "id": "testimonials",
   "type": "SharedSlice",
   "name": "Testimonials",
-  "description": "Client testimonials and reviews",
+  "description": "Client testimonials and reviews with customizable styling and layout",
   "variations": [
     {
       "id": "default",
@@ -25,9 +25,130 @@
             "label": "Subtitle",
             "placeholder": "Real stories from real people"
           }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "Choose background color for the section"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Text Color",
+            "placeholder": "Choose text color for good contrast"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Accent Color",
+            "placeholder": "Choose accent color for highlights and ratings"
+          }
+        },
+        "layout": {
+          "type": "Select",
+          "config": {
+            "label": "Layout Style",
+            "options": [
+              "grid-2",
+              "grid-3",
+              "carousel",
+              "list"
+            ]
+          }
+        },
+        "show_ratings": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Star Ratings",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "show_client_photos": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Client Photos",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "auto_rotate": {
+          "type": "Boolean",
+          "config": {
+            "label": "Auto-rotate Carousel",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
         }
       },
-      "items": {}
+      "items": {
+        "client_name": {
+          "type": "Text",
+          "config": {
+            "label": "Client Name",
+            "placeholder": "Sarah Johnson"
+          }
+        },
+        "client_photo": {
+          "type": "Image",
+          "config": {
+            "label": "Client Photo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "rating": {
+          "type": "Select",
+          "config": {
+            "label": "Star Rating",
+            "options": [
+              "5",
+              "4",
+              "3",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "testimonial_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimonial Text",
+            "placeholder": "Share what the client said about their experience",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+          }
+        },
+        "service_received": {
+          "type": "Text",
+          "config": {
+            "label": "Service Received",
+            "placeholder": "Individual Therapy"
+          }
+        },
+        "session_date": {
+          "type": "Date",
+          "config": {
+            "label": "Session Date",
+            "placeholder": "When this testimonial was given"
+          }
+        },
+        "featured": {
+          "type": "Boolean",
+          "config": {
+            "label": "Featured Testimonial",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      }
     }
   ]
 }

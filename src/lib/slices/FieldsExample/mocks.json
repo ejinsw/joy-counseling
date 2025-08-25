@@ -1,0 +1,234 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"image_label": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+					"width": 3958,
+					"height": 3958
+				},
+				"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+				"width": 3958,
+				"height": 3958,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "thick",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"text_label": {
+				"__TYPE__": "FieldContent",
+				"value": "long",
+				"type": "Text"
+			},
+			"rich_text_label": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris cillum cillum eu proident anim id quis. Labore in anim ex sint dolore ad quis nisi consequat."
+						}
+					}
+				]
+			},
+			"link_label": {
+				"key": "3ba51d3f-0c55-49da-9017-6314f7973d81",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "herself"
+				}
+			},
+			"select_label": {
+				"__TYPE__": "FieldContent",
+				"value": "1",
+				"type": "Select"
+			},
+			"boolean_label": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"number_label": {
+				"__TYPE__": "FieldContent",
+				"value": "14",
+				"type": "Number"
+			},
+			"color_label": {
+				"__TYPE__": "FieldContent",
+				"value": "#2192e8",
+				"type": "Color"
+			},
+			"date_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2025-06-27"
+			},
+			"table_label": {
+				"__TYPE__": "TableContent",
+				"content": [
+					{
+						"key": "362f7ef5-d107-4255-a54a-baeb64f598bc",
+						"type": "tableRow",
+						"content": [
+							{
+								"key": "acc044c1-f518-4edf-8b85-f988ccca55d7",
+								"type": "tableHeader",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Non."
+											}
+										}
+									]
+								}
+							},
+							{
+								"key": "84839bf1-0984-4f68-88df-1a4d932dc4af",
+								"type": "tableHeader",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Quis deserunt."
+											}
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"key": "79ec7289-98a6-44de-8d16-4417382504f6",
+						"type": "tableRow",
+						"content": [
+							{
+								"key": "805e4329-a62d-4037-ba3f-c89ab26e60e1",
+								"type": "tableCell",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Est mollit proident eiusmod proident reprehenderit reprehenderit reprehenderit."
+											}
+										}
+									]
+								}
+							},
+							{
+								"key": "b2a89d14-b15b-4358-bf77-a3418a446522",
+								"type": "tableCell",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Incididunt aute anim officia anim."
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"embed_label": {
+				"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+				"author_name": "Tim Benniks",
+				"author_url": "https://twitter.com/timbenniks",
+				"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+				"type": "rich",
+				"cache_age": "3153600000",
+				"provider_name": "Twitter",
+				"provider_url": "http://www.twitter.com/",
+				"version": "1.0",
+				"all": {
+					"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+					"author_name": "Tim Benniks",
+					"author_url": "https://twitter.com/timbenniks",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"width": 550,
+					"height": null,
+					"type": "rich",
+					"cache_age": "3153600000",
+					"provider_name": "Twitter",
+					"provider_url": "http://www.twitter.com/",
+					"version": "1.0"
+				},
+				"__TYPE__": "EmbedContent"
+			},
+			"timestamp_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Timestamp",
+				"value": "2024-08-26T15:10:11Z"
+			},
+			"geopoint_label": {
+				"position": {
+					"lat": 48.8583736,
+					"lng": 2.2922926
+				},
+				"__TYPE__": "GeoPointContent"
+			},
+			"content_relationship_label": {
+				"key": "3101c5e6-e8cf-4026-81a9-9eedf21ddd0b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"link_to_media_label": {
+				"key": "94717dc7-2c76-4ca7-88d6-35f316c83f49",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "start"
+				}
+			},
+			"repeatable_group_label": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text_in_group_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "section",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
