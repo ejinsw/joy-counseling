@@ -4,7 +4,67 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PickContentRelationshipFieldData<
+	TRelationship extends
+		| prismic.CustomTypeModelFetchCustomTypeLevel1
+		| prismic.CustomTypeModelFetchCustomTypeLevel2
+		| prismic.CustomTypeModelFetchGroupLevel1
+		| prismic.CustomTypeModelFetchGroupLevel2,
+	TData extends Record<
+		string,
+		prismic.AnyRegularField | prismic.GroupField | prismic.NestedGroupField | prismic.SliceZone
+	>,
+	TLang extends string
+> =
+	// Content relationship fields
+	{
+		[TSubRelationship in Extract<
+			TRelationship['fields'][number],
+			prismic.CustomTypeModelFetchContentRelationshipLevel1
+		> as TSubRelationship['id']]: ContentRelationshipFieldWithData<
+			TSubRelationship['customtypes'],
+			TLang
+		>;
+	} & // Group
+	{
+		[TGroup in Extract<
+			TRelationship['fields'][number],
+			prismic.CustomTypeModelFetchGroupLevel1 | prismic.CustomTypeModelFetchGroupLevel2
+		> as TGroup['id']]: TData[TGroup['id']] extends prismic.GroupField<infer TGroupData>
+			? prismic.GroupField<PickContentRelationshipFieldData<TGroup, TGroupData, TLang>>
+			: never;
+	} & // Other fields
+	{
+		[TFieldKey in Extract<TRelationship['fields'][number], string>]: TFieldKey extends keyof TData
+			? TData[TFieldKey]
+			: never;
+	};
+
+type ContentRelationshipFieldWithData<
+	TCustomType extends
+		| readonly (prismic.CustomTypeModelFetchCustomTypeLevel1 | string)[]
+		| readonly (prismic.CustomTypeModelFetchCustomTypeLevel2 | string)[],
+	TLang extends string = string
+> = {
+	[ID in Exclude<TCustomType[number], string>['id']]: prismic.ContentRelationshipField<
+		ID,
+		TLang,
+		PickContentRelationshipFieldData<
+			Extract<TCustomType[number], { id: ID }>,
+			Extract<prismic.Content.AllDocumentTypes, { type: ID }>['data'],
+			TLang
+		>
+	>;
+}[Exclude<TCustomType[number], string>['id']];
+
+type PageDocumentDataSlicesSlice =
+	| FaqSlice
+	| ContactFormSlice
+	| TestimonialsSlice
+	| ServicesSlice
+	| AboutSectionSlice
+	| HeroSlice
+	| RichTextSlice;
 
 /**
  * Content for Page documents
@@ -13,13 +73,13 @@ interface PageDocumentData {
 	/**
 	 * Title field in *Page*
 	 *
-	 * - **Field Type**: Title
+	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
 	 * - **API ID Path**: page.title
 	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
-	title: prismic.TitleField;
+	title: prismic.RichTextField;
 
 	/**
 	 * Slice Zone field in *Page*
@@ -28,7 +88,7 @@ interface PageDocumentData {
 	 * - **Placeholder**: *None*
 	 * - **API ID Path**: page.slices[]
 	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 * - **Documentation**: https://prismic.io/docs/slices
 	 */
 	slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
 	 * Meta Title field in *Page*
@@ -37,7 +97,7 @@ interface PageDocumentData {
 	 * - **Placeholder**: A title of the page used for social media and search engines
 	 * - **API ID Path**: page.meta_title
 	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */;
 	meta_title: prismic.KeyTextField;
 
@@ -48,7 +108,7 @@ interface PageDocumentData {
 	 * - **Placeholder**: A brief summary of the page
 	 * - **API ID Path**: page.meta_description
 	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_description: prismic.KeyTextField;
 
@@ -59,7 +119,7 @@ interface PageDocumentData {
 	 * - **Placeholder**: *None*
 	 * - **API ID Path**: page.meta_image
 	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	meta_image: prismic.ImageField<never>;
 }
@@ -69,7 +129,7 @@ interface PageDocumentData {
  *
  * - **API ID**: `page`
  * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
+ * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
@@ -82,6 +142,193 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 export type AllDocumentTypes = PageDocument;
 
 /**
+ * Primary content in *AboutSection → Default → Primary*
+ */
+export interface AboutSectionSliceDefaultPrimary {
+	/**
+	 * Title field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: About Us
+	 * - **API ID Path**: about_section.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Content field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Share your story and mission...
+	 * - **API ID Path**: about_section.default.primary.content
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Image field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+
+	/**
+	 * Image Position field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: left
+	 * - **API ID Path**: about_section.default.primary.image_position
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_position: prismic.SelectField<'left' | 'right', 'filled'>;
+}
+
+/**
+ * Default variation for AboutSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSectionSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<AboutSectionSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *AboutSection*
+ */
+type AboutSectionSliceVariation = AboutSectionSliceDefault;
+
+/**
+ * AboutSection Shared Slice
+ *
+ * - **API ID**: `about_section`
+ * - **Description**: About section with image and text
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSectionSlice = prismic.SharedSlice<'about_section', AboutSectionSliceVariation>;
+
+/**
+ * Primary content in *ContactForm → Default → Primary*
+ */
+export interface ContactFormSliceDefaultPrimary {
+	/**
+	 * Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Get In Touch
+	 * - **API ID Path**: contact_form.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Ready to start your healing journey?
+	 * - **API ID Path**: contact_form.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Contact Information field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Phone, email, address...
+	 * - **API ID Path**: contact_form.default.primary.contact_info
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	contact_info: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ContactFormSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: Contact form for inquiries
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
+
+/**
+ * Primary content in *FAQ → Default → Primary*
+ */
+export interface FaqSliceDefaultPrimary {
+	/**
+	 * Title field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Frequently Asked Questions
+	 * - **API ID Path**: faq.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Common questions about our services
+	 * - **API ID Path**: faq.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FAQ Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<FaqSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *FAQ*
+ */
+type FaqSliceVariation = FaqSliceDefault;
+
+/**
+ * FAQ Shared Slice
+ *
+ * - **API ID**: `faq`
+ * - **Description**: Frequently asked questions
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -91,7 +338,7 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Won Counseling
 	 * - **API ID Path**: hero.default.primary.main_headline
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	main_headline: prismic.KeyTextField;
 
@@ -101,7 +348,7 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Get help today.
 	 * - **API ID Path**: hero.default.primary.sub_headline
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	sub_headline: prismic.KeyTextField;
 
@@ -111,7 +358,7 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
 	 * - **API ID Path**: hero.default.primary.call_to_action_link
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	call_to_action_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
@@ -121,7 +368,7 @@ export interface HeroSliceDefaultPrimary {
  *
  * - **API ID**: `default`
  * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
+ * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
 	'default',
@@ -139,7 +386,7 @@ type HeroSliceVariation = HeroSliceDefault;
  *
  * - **API ID**: `hero`
  * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
+ * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
 
@@ -153,7 +400,7 @@ export interface RichTextSliceDefaultPrimary {
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: Lorem ipsum...
 	 * - **API ID Path**: rich_text.default.primary.content
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	content: prismic.RichTextField;
 }
@@ -163,7 +410,7 @@ export interface RichTextSliceDefaultPrimary {
  *
  * - **API ID**: `default`
  * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
+ * - **Documentation**: https://prismic.io/docs/slices
  */
 export type RichTextSliceDefault = prismic.SharedSliceVariation<
 	'default',
@@ -181,9 +428,113 @@ type RichTextSliceVariation = RichTextSliceDefault;
  *
  * - **API ID**: `rich_text`
  * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
+ * - **Documentation**: https://prismic.io/docs/slices
  */
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
+
+/**
+ * Primary content in *Services → Default → Primary*
+ */
+export interface ServicesSliceDefaultPrimary {
+	/**
+	 * Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Our Services
+	 * - **API ID Path**: services.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Professional counseling services to help you heal and grow
+	 * - **API ID Path**: services.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Services Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ServicesSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ServicesSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Services*
+ */
+type ServicesSliceVariation = ServicesSliceDefault;
+
+/**
+ * Services Shared Slice
+ *
+ * - **API ID**: `services`
+ * - **Description**: Services offered by the counseling practice
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ServicesSlice = prismic.SharedSlice<'services', ServicesSliceVariation>;
+
+/**
+ * Primary content in *Testimonials → Default → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+	/**
+	 * Title field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: What Our Clients Say
+	 * - **API ID Path**: testimonials.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Real stories from real people
+	 * - **API ID Path**: testimonials.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TestimonialsSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault;
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Client testimonials and reviews
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSlice = prismic.SharedSlice<'testimonials', TestimonialsSliceVariation>;
 
 declare module '@prismicio/client' {
 	interface CreateClient {
@@ -210,6 +561,18 @@ declare module '@prismicio/client' {
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			AboutSectionSlice,
+			AboutSectionSliceDefaultPrimary,
+			AboutSectionSliceVariation,
+			AboutSectionSliceDefault,
+			ContactFormSlice,
+			ContactFormSliceDefaultPrimary,
+			ContactFormSliceVariation,
+			ContactFormSliceDefault,
+			FaqSlice,
+			FaqSliceDefaultPrimary,
+			FaqSliceVariation,
+			FaqSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
@@ -217,7 +580,15 @@ declare module '@prismicio/client' {
 			RichTextSlice,
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
-			RichTextSliceDefault
+			RichTextSliceDefault,
+			ServicesSlice,
+			ServicesSliceDefaultPrimary,
+			ServicesSliceVariation,
+			ServicesSliceDefault,
+			TestimonialsSlice,
+			TestimonialsSliceDefaultPrimary,
+			TestimonialsSliceVariation,
+			TestimonialsSliceDefault
 		};
 	}
 }

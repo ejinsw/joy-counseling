@@ -27,6 +27,24 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"faq": {
+							"type": "SharedSlice"
+						},
+						"contact_form": {
+							"type": "SharedSlice"
+						},
+						"testimonials": {
+							"type": "SharedSlice"
+						},
+						"services": {
+							"type": "SharedSlice"
+						},
+						"about_section": {
+							"type": "SharedSlice"
+						},
+						"hero": {
+							"type": "SharedSlice"
+						},
 						"rich_text": {
 							"type": "SharedSlice"
 						}

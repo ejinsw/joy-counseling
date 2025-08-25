@@ -15,13 +15,3 @@ export async function load({ params, fetch, cookies }) {
 		meta_image: page.data.meta_image.url
 	};
 }
-
-export async function entries() {
-	const client = createClient();
-
-	const pages = await client.getAllByType('page');
-
-	return pages.map((page) => {
-		return { uid: page.uid };
-	});
-}
