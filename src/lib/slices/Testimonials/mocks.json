@@ -1,0 +1,43 @@
+{
+  "id": "testimonials",
+  "slice_type": "testimonials",
+  "slice_label": null,
+  "version": "mock",
+  "variation": "default",
+  "primary": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real stories from real people who found healing and hope"
+  },
+  "items": [
+    {
+      "client_name": "Sarah M.",
+      "testimonial_text": "This counseling service changed my life. I finally found the tools to manage my anxiety and feel like myself again. The therapists are incredibly compassionate and professional.",
+      "rating": 5
+    },
+    {
+      "client_name": "Michael & Lisa R.",
+      "testimonial_text": "Couples counseling helped us rebuild our communication and strengthen our relationship. We're now better partners and parents thanks to the guidance we received.",
+      "rating": 5
+    },
+    {
+      "client_name": "David K.",
+      "testimonial_text": "After struggling with depression for years, I found hope here. The trauma-informed approach made all the difference in my healing journey.",
+      "rating": 5
+    },
+    {
+      "client_name": "Jennifer L.",
+      "testimonial_text": "The family therapy sessions helped us navigate a difficult transition. Our therapist provided practical tools that we still use today.",
+      "rating": 5
+    },
+    {
+      "client_name": "Robert T.",
+      "testimonial_text": "Professional, caring, and effective. I've tried other therapists before, but this practice truly understands how to help people heal.",
+      "rating": 5
+    },
+    {
+      "client_name": "Amanda S.",
+      "testimonial_text": "I was nervous about starting therapy, but the warm environment and skilled therapists made me feel safe and supported from day one.",
+      "rating": 5
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "faq",
+  "slice_type": "faq",
+  "slice_label": null,
+  "version": "mock",
+  "variation": "default",
+  "primary": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about our services and what to expect"
+  },
+  "items": [
+    {
+      "question": "What is counseling and how does it work?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "Counseling is a collaborative process between you and a trained mental health professional. Through regular sessions, you'll work together to identify challenges, develop coping strategies, and work toward your goals. The process typically involves talking about your thoughts, feelings, and experiences in a safe, confidential environment.",
+          "spans": []
+        }
+      ]
+    },
+    {
+      "question": "How long are sessions and how many will I need?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "Sessions typically last 50 minutes. The number of sessions varies depending on your individual needs and goals. Some people benefit from just a few sessions, while others may continue for several months or longer. We'll work together to determine what's best for you.",
+          "spans": []
+        }
+      ]
+    },
+    {
+      "question": "Do you accept insurance?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "We accept most major insurance plans. Please contact us to verify your specific coverage. We also offer sliding scale fees for those without insurance or with limited financial resources.",
+          "spans": []
+        }
+      ]
+    },
+    {
+      "question": "What should I expect in my first session?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "Your first session is primarily about getting to know each other. We'll discuss what brought you to counseling, your goals, and answer any questions you have. This helps us create a personalized treatment plan for your needs.",
+          "spans": []
+        }
+      ]
+    },
+    {
+      "question": "Is everything I say confidential?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "Yes, everything you share in counseling is confidential. There are only a few exceptions required by law, such as if you're a danger to yourself or others, or if there's suspected abuse of a child or vulnerable adult. We'll discuss confidentiality in detail during your first session.",
+          "spans": []
+        }
+      ]
+    },
+    {
+      "question": "How do I know if counseling is right for me?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "text": "Counseling can be helpful for anyone dealing with life challenges, stress, relationship issues, mental health concerns, or simply wanting to grow and improve their life. If you're wondering whether counseling might help, it's worth having a conversation about it. We offer free initial consultations to help you decide.",
+          "spans": []
+        }
+      ]
+    }
+  ]
+}

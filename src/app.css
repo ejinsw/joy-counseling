@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Flowbite CSS */
+@import 'flowbite-svelte/dist/index.css';
+
+/* Custom styles */
+html, body { @apply h-full overflow-x-hidden; }
+
+#svelte { @apply h-full flex flex-col; }

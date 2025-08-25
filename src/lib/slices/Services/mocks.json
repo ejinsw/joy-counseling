@@ -1,0 +1,43 @@
+{
+  "id": "services",
+  "slice_type": "services",
+  "slice_label": null,
+  "version": "mock",
+  "variation": "default",
+  "primary": {
+    "title": "Our Services",
+    "subtitle": "Professional counseling services to help you heal and grow"
+  },
+  "items": [
+    {
+      "service_name": "Individual Therapy",
+      "description": "One-on-one counseling sessions tailored to your specific needs and goals.",
+      "icon": "💙"
+    },
+    {
+      "service_name": "Couples Counseling",
+      "description": "Work together to improve communication and strengthen your relationship.",
+      "icon": "💕"
+    },
+    {
+      "service_name": "Family Therapy",
+      "description": "Address family dynamics and create healthier relationships at home.",
+      "icon": "🏠"
+    },
+    {
+      "service_name": "Anxiety & Depression",
+      "description": "Specialized treatment for anxiety, depression, and mood disorders.",
+      "icon": "🌱"
+    },
+    {
+      "service_name": "Trauma Therapy",
+      "description": "Safe and supportive treatment for processing past trauma and healing.",
+      "icon": "🕊️"
+    },
+    {
+      "service_name": "Life Transitions",
+      "description": "Navigate major life changes with guidance and support.",
+      "icon": "🔄"
+    }
+  ]
+}

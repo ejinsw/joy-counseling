@@ -1,0 +1,38 @@
+{
+  "id": "about_section",
+  "slice_type": "about_section",
+  "slice_label": null,
+  "version": "mock",
+  "variation": "default",
+  "primary": {
+    "title": "About Our Practice",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "We are a compassionate team of licensed mental health professionals dedicated to helping individuals, couples, and families navigate life's challenges and find healing.",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "With over 15 years of combined experience, we specialize in evidence-based therapeutic approaches including Cognitive Behavioral Therapy (CBT), Emotionally Focused Therapy (EFT), and trauma-informed care.",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Our mission is to create a safe, non-judgmental space where you can explore your thoughts and feelings, develop healthy coping strategies, and build the life you deserve.",
+        "spans": []
+      }
+    ],
+    "image": {
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "alt": "Counseling office with comfortable seating",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop"
+    },
+    "image_position": "left"
+  },
+  "items": []
+}
