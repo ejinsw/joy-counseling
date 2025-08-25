@@ -85,6 +85,52 @@
             "placeholder_true": "true",
             "default_value": true
           }
+        },
+        "trust_indicator_1": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator 1",
+            "placeholder": "Verified Client Reviews"
+          }
+        },
+        "trust_indicator_2": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator 2",
+            "placeholder": "Confidentiality Protected"
+          }
+        },
+        "privacy_notice_title": {
+          "type": "Text",
+          "config": {
+            "label": "Privacy Notice Title",
+            "placeholder": "Client Privacy Protected"
+          }
+        },
+        "privacy_notice_text": {
+          "type": "Text",
+          "config": {
+            "label": "Privacy Notice Text",
+            "placeholder": "All testimonials are shared with explicit client consent. Names and identifying details may be changed to protect privacy while maintaining the authenticity of the therapeutic experience."
+          }
+        },
+        "cta_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Call to Action Button Text",
+            "placeholder": "Share Your Story - Schedule Today"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Call to Action Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
         }
       },
       "items": {

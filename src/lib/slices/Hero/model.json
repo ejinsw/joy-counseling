@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "professional_badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Professional Badge Text",
+            "placeholder": "Licensed Mental Health Professionals"
+          }
+        },
         "main_headline": {
           "type": "Text",
           "config": {
@@ -38,14 +45,14 @@
         "call_to_action_text": {
           "type": "Text",
           "config": {
-            "label": "Call to Action Button Text",
+            "label": "Primary Button Text",
             "placeholder": "Schedule a Session"
           }
         },
         "call_to_action_link": {
           "type": "Link",
           "config": {
-            "label": "Call To Action Link",
+            "label": "Primary Button Link",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": false,
@@ -70,9 +77,46 @@
             "allowText": false,
             "repeat": false
           }
+        },
+        "scroll_indicator_text": {
+          "type": "Text",
+          "config": {
+            "label": "Scroll Indicator Text",
+            "placeholder": "Scroll to learn more"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
-      "items": {}
+      "items": {
+        "trust_indicator_text": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator Text",
+            "placeholder": "HIPAA Compliant"
+          }
+        },
+        "trust_indicator_icon": {
+          "type": "Select",
+          "config": {
+            "label": "Trust Indicator Icon",
+            "options": [
+              "shield",
+              "heart",
+              "certificate",
+              "calendar",
+              "support",
+              "confidential"
+            ]
+          }
+        }
+      }
     }
   ]
 }

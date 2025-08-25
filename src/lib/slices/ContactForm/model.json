@@ -88,6 +88,76 @@
             "label": "Contact Info Title",
             "placeholder": "Contact Information"
           }
+        },
+        "encouraging_message_title": {
+          "type": "Text",
+          "config": {
+            "label": "Encouraging Message Title",
+            "placeholder": "Taking the first step takes courage"
+          }
+        },
+        "encouraging_message_text": {
+          "type": "Text",
+          "config": {
+            "label": "Encouraging Message Text",
+            "placeholder": "We're here to support you. All conversations are confidential and we typically respond within 24 hours."
+          }
+        },
+        "form_header_title": {
+          "type": "Text",
+          "config": {
+            "label": "Form Header Title",
+            "placeholder": "Schedule Your First Session"
+          }
+        },
+        "form_header_description": {
+          "type": "Text",
+          "config": {
+            "label": "Form Header Description",
+            "placeholder": "Please share some information about yourself and what brings you here today."
+          }
+        },
+        "privacy_notice_title": {
+          "type": "Text",
+          "config": {
+            "label": "Privacy Notice Title",
+            "placeholder": "Your Privacy Matters"
+          }
+        },
+        "privacy_notice_text": {
+          "type": "Text",
+          "config": {
+            "label": "Privacy Notice Text",
+            "placeholder": "All communications are strictly confidential and protected by professional counseling standards."
+          }
+        },
+        "consent_text": {
+          "type": "Text",
+          "config": {
+            "label": "Consent Checkbox Text",
+            "placeholder": "I understand that this form is secure and my information will be kept confidential. I consent to being contacted about scheduling an appointment."
+          }
+        },
+        "success_title": {
+          "type": "Text",
+          "config": {
+            "label": "Success Message Title",
+            "placeholder": "Thank You for Reaching Out"
+          }
+        },
+        "success_description": {
+          "type": "Text",
+          "config": {
+            "label": "Success Message Description",
+            "placeholder": "We've received your message and will respond within 24 hours. Taking this step shows real strength."
+          }
+        },
+        "success_next_steps": {
+          "type": "Text",
+          "config": {
+            "label": "Success Next Steps Text",
+            "placeholder": "What's next? We'll review your message and reach out to schedule a brief consultation where we can discuss your needs and answer any questions."
+          }
         }
       },
       "items": {

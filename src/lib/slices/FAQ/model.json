@@ -75,6 +75,70 @@
             "placeholder_true": "true",
             "default_value": true
           }
+        },
+        "helpful_note_title": {
+          "type": "Text",
+          "config": {
+            "label": "Helpful Note Title",
+            "placeholder": "Still have questions?"
+          }
+        },
+        "helpful_note_text": {
+          "type": "Text",
+          "config": {
+            "label": "Helpful Note Text",
+            "placeholder": "Don't hesitate to reach out. We're here to help you feel comfortable and informed about your counseling journey."
+          }
+        },
+        "contact_section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Section Title",
+            "placeholder": "Need More Information?"
+          }
+        },
+        "contact_section_description": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Section Description",
+            "placeholder": "Every therapeutic journey is unique. If you have specific questions about your situation or our approach, we're here to help you feel fully informed and comfortable."
+          }
+        },
+        "contact_button_1_text": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Button 1 Text",
+            "placeholder": "Send Us a Message"
+          }
+        },
+        "contact_button_1_link": {
+          "type": "Link",
+          "config": {
+            "label": "Contact Button 1 Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
+        },
+        "contact_button_2_text": {
+          "type": "Text",
+          "config": {
+            "label": "Contact Button 2 Text",
+            "placeholder": "Call for a Consultation"
+          }
+        },
+        "contact_button_2_link": {
+          "type": "Link",
+          "config": {
+            "label": "Contact Button 2 Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
         }
       },
       "items": {

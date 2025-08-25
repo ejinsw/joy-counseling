@@ -2,28 +2,59 @@
   import type { HeroSlice } from '../../../prismicio-types';
   import { PrismicRichText } from '@prismicio/svelte';
   import { PrismicLink } from '@prismicio/svelte';
+  import { PrismicImage } from '@prismicio/svelte';
   import { isFilled } from '@prismicio/client';
 
   export let slice: HeroSlice;
 
-  let { primary } = slice;
+  let { primary, items } = slice;
+  
+  // Get trust indicator icon
+  function getTrustIcon(iconType: string | null | undefined) {
+    const iconMap: Record<string, string> = {
+      shield: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+      heart: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+      certificate: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+      calendar: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+      support: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
+      confidential: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+    };
+    
+    return iconMap[iconType || ''] || iconMap.shield;
+  }
 </script>
 
 <!-- Hero Section with Professional Counseling Design -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-healing-gradient">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10">
-    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <defs>
-        <pattern id="healing-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-          <circle cx="20" cy="20" r="1" fill="currentColor" class="text-primary-400"/>
-          <circle cx="10" cy="10" r="0.5" fill="currentColor" class="text-sage-400"/>
-          <circle cx="30" cy="10" r="0.5" fill="currentColor" class="text-lavender-400"/>
-        </pattern>
-      </defs>
-      <rect width="100" height="100" fill="url(#healing-pattern)"/>
-    </svg>
-  </div>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  {#if isFilled.image(primary.background_image)}
+    <div class="absolute inset-0">
+      <PrismicImage 
+        field={primary.background_image} 
+        class="w-full h-full object-cover" 
+      />
+      <!-- Professional overlay for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-900/80 via-primary-800/70 to-primary-900/80"></div>
+      <div class="absolute inset-0 bg-healing-gradient opacity-60"></div>
+    </div>
+  {:else}
+    <!-- Fallback gradient background -->
+    <div class="absolute inset-0 bg-healing-gradient">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="healing-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="1" fill="currentColor" class="text-primary-400"/>
+              <circle cx="10" cy="10" r="0.5" fill="currentColor" class="text-sage-400"/>
+              <circle cx="30" cy="10" r="0.5" fill="currentColor" class="text-lavender-400"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#healing-pattern)"/>
+        </svg>
+      </div>
+    </div>
+  {/if}
 
   <!-- Floating Elements -->
   <div class="absolute inset-0 pointer-events-none">
@@ -51,15 +82,17 @@
   <div class="section-container relative z-10">
     <div class="max-w-5xl mx-auto text-center">
       
-      <!-- Professional Badge -->
-      <div class="mb-8 fade-in">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-primary-200 shadow-sm">
-          <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span class="text-sm font-medium text-primary-800">Licensed Mental Health Professionals</span>
-        </div>
-      </div>
+      			<!-- Professional Badge -->
+			{#if isFilled.keyText(primary.professional_badge_text)}
+				<div class="mb-8 fade-in">
+					<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-primary-200 shadow-sm">
+						<svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+						<span class="text-sm font-medium text-primary-800">{primary.professional_badge_text}</span>
+					</div>
+				</div>
+			{/if}
 
       <!-- Main Headline -->
       {#if isFilled.keyText(primary.main_headline)}
@@ -110,35 +143,21 @@
       </div>
 
       <!-- Trust Indicators -->
-      <div class="flex flex-wrap justify-center items-center gap-8 text-sm text-neutral-600 slide-up" style="animation-delay: 0.8s">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
-          <span>HIPAA Compliant</span>
+      {#if items && items.length > 0}
+        <div class="flex flex-wrap justify-center items-center gap-8 text-sm text-neutral-600 slide-up" style="animation-delay: 0.8s">
+          {#each items as trustItem}
+            {#if isFilled.keyText(trustItem.trust_indicator_text)}
+              {@const iconSvg = getTrustIcon(trustItem.trust_indicator_icon)}
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconSvg}/>
+                </svg>
+                <span>{trustItem.trust_indicator_text}</span>
+              </div>
+            {/if}
+          {/each}
         </div>
-        
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>Evidence-Based Care</span>
-        </div>
-        
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-lavender-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-          </svg>
-          <span>Compassionate Support</span>
-        </div>
-        
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>Flexible Scheduling</span>
-        </div>
-      </div>
+      {/if}
     </div>
   </div>
 
@@ -147,6 +166,8 @@
     <div class="w-6 h-10 border-2 border-primary-400 rounded-full flex justify-center">
       <div class="w-1 h-3 bg-primary-400 rounded-full mt-2 animate-bounce"></div>
     </div>
-    <p class="text-xs text-neutral-500 mt-2 text-center">Scroll to explore</p>
+    {#if isFilled.keyText(primary.scroll_indicator_text)}
+      <p class="text-xs text-primary-600 mt-2 text-center font-medium">{primary.scroll_indicator_text}</p>
+    {/if}
   </div>
 </section>

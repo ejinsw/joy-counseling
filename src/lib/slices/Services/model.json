@@ -25,6 +25,83 @@
             "label": "Subtitle",
             "placeholder": "Professional counseling services to help you heal and grow"
           }
+        },
+        "trust_indicator_1": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator 1",
+            "placeholder": "Evidence-Based Approaches"
+          }
+        },
+        "trust_indicator_2": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator 2",
+            "placeholder": "Confidential & Safe"
+          }
+        },
+        "trust_indicator_3": {
+          "type": "Text",
+          "config": {
+            "label": "Trust Indicator 3",
+            "placeholder": "Compassionate Care"
+          }
+        },
+        "approach_section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Therapeutic Approach Section Title",
+            "placeholder": "Why Choose Our Therapeutic Approach?"
+          }
+        },
+        "approach_description": {
+          "type": "Text",
+          "config": {
+            "label": "Therapeutic Approach Description",
+            "placeholder": "Our evidence-based methods are tailored to your unique needs, ensuring personalized care that promotes lasting positive change."
+          }
+        },
+        "approach_feature_1_title": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 1 Title",
+            "placeholder": "Personalized Treatment Plans"
+          }
+        },
+        "approach_feature_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 1 Description",
+            "placeholder": "Customized therapy approaches based on your specific goals and needs."
+          }
+        },
+        "approach_feature_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 2 Title",
+            "placeholder": "Evidence-Based Methods"
+          }
+        },
+        "approach_feature_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 2 Description",
+            "placeholder": "Proven therapeutic techniques backed by scientific research and clinical studies."
+          }
+        },
+        "approach_feature_3_title": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 3 Title",
+            "placeholder": "Compassionate Support"
+          }
+        },
+        "approach_feature_3_description": {
+          "type": "Text",
+          "config": {
+            "label": "Approach Feature 3 Description",
+            "placeholder": "A safe, non-judgmental space where you can explore, heal, and grow at your own pace."
+          }
         }
       },
       "items": {
