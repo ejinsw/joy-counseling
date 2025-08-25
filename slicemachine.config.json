@@ -2,7 +2,5 @@
 	"repositoryName": "counseling",
 	"adapter": "@slicemachine/adapter-sveltekit",
 	"libraries": ["./src/lib/slices"],
-	"localSliceSimulatorURL": "http://localhost:5173/slice-simulator",
-	"remoteSliceSimulatorURL": "https://joy-counseling.vercel.app/slice-simulator",
-	"apiEndpoint": ""
+	"localSliceSimulatorURL": "http://localhost:5173/slice-simulator"
 }
