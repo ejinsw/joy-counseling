@@ -778,88 +778,6 @@ export interface FaqSliceDefaultPrimary {
 	subtitle: prismic.KeyTextField;
 
 	/**
-	 * Background Color field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose background color for the section
-	 * - **API ID Path**: faq.default.primary.background_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	background_color: prismic.ColorField;
-
-	/**
-	 * Text Color field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose text color for good contrast
-	 * - **API ID Path**: faq.default.primary.text_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	text_color: prismic.ColorField;
-
-	/**
-	 * Accent Color field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose accent color for highlights and icons
-	 * - **API ID Path**: faq.default.primary.accent_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	accent_color: prismic.ColorField;
-
-	/**
-	 * Layout Style field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: faq.default.primary.layout
-	 * - **Documentation**: https://prismic.io/docs/fields/select
-	 */
-	layout: prismic.SelectField<'accordion' | 'list' | 'grid-2'>;
-
-	/**
-	 * Expand All by Default field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: false
-	 * - **API ID Path**: faq.default.primary.expand_all
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	expand_all: prismic.BooleanField;
-
-	/**
-	 * Show Expand/Collapse Icons field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: true
-	 * - **API ID Path**: faq.default.primary.show_icons
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	show_icons: prismic.BooleanField;
-
-	/**
-	 * Helpful Note Title field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Still have questions?
-	 * - **API ID Path**: faq.default.primary.helpful_note_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	helpful_note_title: prismic.KeyTextField;
-
-	/**
-	 * Helpful Note Text field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Don't hesitate to reach out. We're here to help you feel comfortable and informed about your counseling journey.
-	 * - **API ID Path**: faq.default.primary.helpful_note_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	helpful_note_text: prismic.KeyTextField;
-
-	/**
 	 * Contact Section Title field in *FAQ → Default → Primary*
 	 *
 	 * - **Field Type**: Text
@@ -966,16 +884,6 @@ export interface FaqSliceDefaultItem {
 	 * - **Documentation**: https://prismic.io/docs/fields/boolean
 	 */
 	featured: prismic.BooleanField;
-
-	/**
-	 * Display Order field in *FAQ → Items*
-	 *
-	 * - **Field Type**: Number
-	 * - **Placeholder**: 1
-	 * - **API ID Path**: faq.items[].order
-	 * - **Documentation**: https://prismic.io/docs/fields/number
-	 */
-	order: prismic.NumberField;
 }
 
 /**

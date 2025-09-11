@@ -26,70 +26,6 @@
             "placeholder": "Common questions about our services"
           }
         },
-        "background_color": {
-          "type": "Color",
-          "config": {
-            "label": "Background Color",
-            "placeholder": "Choose background color for the section"
-          }
-        },
-        "text_color": {
-          "type": "Color",
-          "config": {
-            "label": "Text Color",
-            "placeholder": "Choose text color for good contrast"
-          }
-        },
-        "accent_color": {
-          "type": "Color",
-          "config": {
-            "label": "Accent Color",
-            "placeholder": "Choose accent color for highlights and icons"
-          }
-        },
-        "layout": {
-          "type": "Select",
-          "config": {
-            "label": "Layout Style",
-            "options": [
-              "accordion",
-              "list",
-              "grid-2"
-            ]
-          }
-        },
-        "expand_all": {
-          "type": "Boolean",
-          "config": {
-            "label": "Expand All by Default",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
-        },
-        "show_icons": {
-          "type": "Boolean",
-          "config": {
-            "label": "Show Expand/Collapse Icons",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": true
-          }
-        },
-        "helpful_note_title": {
-          "type": "Text",
-          "config": {
-            "label": "Helpful Note Title",
-            "placeholder": "Still have questions?"
-          }
-        },
-        "helpful_note_text": {
-          "type": "Text",
-          "config": {
-            "label": "Helpful Note Text",
-            "placeholder": "Don't hesitate to reach out. We're here to help you feel comfortable and informed about your counseling journey."
-          }
-        },
         "contact_section_title": {
           "type": "Text",
           "config": {
@@ -179,13 +115,6 @@
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": false
-          }
-        },
-        "order": {
-          "type": "Number",
-          "config": {
-            "label": "Display Order",
-            "placeholder": "1"
           }
         }
       }
