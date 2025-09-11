@@ -262,7 +262,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	content: prismic.RichTextField;
 
 	/**
-	 * Image field in *AboutSection → Default → Primary*
+	 * Professional Image field in *AboutSection → Default → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -270,6 +270,131 @@ export interface AboutSectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	image: prismic.ImageField<never>;
+
+	/**
+	 * Professional Badge Text field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Licensed Professional
+	 * - **API ID Path**: about_section.default.primary.professional_badge_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	professional_badge_text: prismic.KeyTextField;
+
+	/**
+	 * Credentials Section Title field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Why Choose Our Practice
+	 * - **API ID Path**: about_section.default.primary.credentials_section_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	credentials_section_title: prismic.KeyTextField;
+
+	/**
+	 * Statistics Section Title field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Our Impact
+	 * - **API ID Path**: about_section.default.primary.stats_section_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	stats_section_title: prismic.KeyTextField;
+
+	/**
+	 * Years of Experience field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: 15
+	 * - **API ID Path**: about_section.default.primary.years_experience
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	years_experience: prismic.NumberField;
+
+	/**
+	 * Clients Helped field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: 500
+	 * - **API ID Path**: about_section.default.primary.clients_helped
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	clients_helped: prismic.NumberField;
+
+	/**
+	 * Client Satisfaction Rate (%) field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: 98
+	 * - **API ID Path**: about_section.default.primary.satisfaction_rate
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	satisfaction_rate: prismic.NumberField;
+
+	/**
+	 * Call to Action Button Text field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Start Your Journey Today
+	 * - **API ID Path**: about_section.default.primary.cta_button_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	cta_button_text: prismic.KeyTextField;
+
+	/**
+	 * Call to Action Button Link field in *AboutSection → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.default.primary.cta_button_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta_button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *AboutSection → Items*
+ */
+export interface AboutSectionSliceDefaultItem {
+	/**
+	 * Credential Title field in *AboutSection → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Licensed Professionals
+	 * - **API ID Path**: about_section.items[].credential_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	credential_title: prismic.KeyTextField;
+
+	/**
+	 * Credential Description field in *AboutSection → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Board-certified therapists with extensive training
+	 * - **API ID Path**: about_section.items[].credential_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	credential_description: prismic.KeyTextField;
+
+	/**
+	 * Credential Icon field in *AboutSection → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.items[].credential_icon
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	credential_icon: prismic.SelectField<'certificate' | 'heart' | 'shield' | 'brain' | 'support'>;
+
+	/**
+	 * Credential Color Theme field in *AboutSection → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.items[].credential_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	credential_color: prismic.SelectField<'primary' | 'sage' | 'lavender' | 'secondary'>;
 }
 
 /**
@@ -282,7 +407,7 @@ export interface AboutSectionSliceDefaultPrimary {
 export type AboutSectionSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<AboutSectionSliceDefaultPrimary>,
-	never
+	Simplify<AboutSectionSliceDefaultItem>
 >;
 
 /**
@@ -403,6 +528,106 @@ export interface ContactFormSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	contact_info_title: prismic.KeyTextField;
+
+	/**
+	 * Encouraging Message Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Taking the first step takes courage
+	 * - **API ID Path**: contact_form.default.primary.encouraging_message_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	encouraging_message_title: prismic.KeyTextField;
+
+	/**
+	 * Encouraging Message Text field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: We're here to support you. All conversations are confidential and we typically respond within 24 hours.
+	 * - **API ID Path**: contact_form.default.primary.encouraging_message_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	encouraging_message_text: prismic.KeyTextField;
+
+	/**
+	 * Form Header Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Schedule Your First Session
+	 * - **API ID Path**: contact_form.default.primary.form_header_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	form_header_title: prismic.KeyTextField;
+
+	/**
+	 * Form Header Description field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Please share some information about yourself and what brings you here today.
+	 * - **API ID Path**: contact_form.default.primary.form_header_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	form_header_description: prismic.KeyTextField;
+
+	/**
+	 * Privacy Notice Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Your Privacy Matters
+	 * - **API ID Path**: contact_form.default.primary.privacy_notice_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	privacy_notice_title: prismic.KeyTextField;
+
+	/**
+	 * Privacy Notice Text field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: All communications are strictly confidential and protected by professional counseling standards.
+	 * - **API ID Path**: contact_form.default.primary.privacy_notice_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	privacy_notice_text: prismic.KeyTextField;
+
+	/**
+	 * Consent Checkbox Text field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: I understand that this form is secure and my information will be kept confidential. I consent to being contacted about scheduling an appointment.
+	 * - **API ID Path**: contact_form.default.primary.consent_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	consent_text: prismic.KeyTextField;
+
+	/**
+	 * Success Message Title field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Thank You for Reaching Out
+	 * - **API ID Path**: contact_form.default.primary.success_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	success_title: prismic.KeyTextField;
+
+	/**
+	 * Success Message Description field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: We've received your message and will respond within 24 hours. Taking this step shows real strength.
+	 * - **API ID Path**: contact_form.default.primary.success_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	success_description: prismic.KeyTextField;
+
+	/**
+	 * Success Next Steps Text field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: What's next? We'll review your message and reach out to schedule a brief consultation where we can discuss your needs and answer any questions.
+	 * - **API ID Path**: contact_form.default.primary.success_next_steps
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	success_next_steps: prismic.KeyTextField;
 }
 
 /**
@@ -613,6 +838,86 @@ export interface FaqSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/boolean
 	 */
 	show_icons: prismic.BooleanField;
+
+	/**
+	 * Helpful Note Title field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Still have questions?
+	 * - **API ID Path**: faq.default.primary.helpful_note_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	helpful_note_title: prismic.KeyTextField;
+
+	/**
+	 * Helpful Note Text field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Don't hesitate to reach out. We're here to help you feel comfortable and informed about your counseling journey.
+	 * - **API ID Path**: faq.default.primary.helpful_note_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	helpful_note_text: prismic.KeyTextField;
+
+	/**
+	 * Contact Section Title field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Need More Information?
+	 * - **API ID Path**: faq.default.primary.contact_section_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_section_title: prismic.KeyTextField;
+
+	/**
+	 * Contact Section Description field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Every therapeutic journey is unique. If you have specific questions about your situation or our approach, we're here to help you feel fully informed and comfortable.
+	 * - **API ID Path**: faq.default.primary.contact_section_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_section_description: prismic.KeyTextField;
+
+	/**
+	 * Contact Button 1 Text field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Send Us a Message
+	 * - **API ID Path**: faq.default.primary.contact_button_1_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_button_1_text: prismic.KeyTextField;
+
+	/**
+	 * Contact Button 1 Link field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq.default.primary.contact_button_1_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	contact_button_1_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Contact Button 2 Text field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Call for a Consultation
+	 * - **API ID Path**: faq.default.primary.contact_button_2_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	contact_button_2_text: prismic.KeyTextField;
+
+	/**
+	 * Contact Button 2 Link field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq.default.primary.contact_button_2_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	contact_button_2_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -945,7 +1250,7 @@ export interface HeroSliceDefaultPrimary {
 	description: prismic.RichTextField;
 
 	/**
-	 * Call to Action Button Text field in *Hero → Default → Primary*
+	 * Primary Button Text field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Schedule a Session
@@ -955,7 +1260,7 @@ export interface HeroSliceDefaultPrimary {
 	call_to_action_text: prismic.KeyTextField;
 
 	/**
-	 * Call To Action Link field in *Hero → Default → Primary*
+	 * Primary Button Link field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
@@ -983,6 +1288,43 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	secondary_button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Background Image field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.background_image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceDefaultItem {
+	/**
+	 * Trust Indicator Text field in *Hero → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: HIPAA Compliant
+	 * - **API ID Path**: hero.items[].trust_indicator_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_text: prismic.KeyTextField;
+
+	/**
+	 * Trust Indicator Icon field in *Hero → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.items[].trust_indicator_icon
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	trust_indicator_icon: prismic.SelectField<
+		'shield' | 'heart' | 'certificate' | 'calendar' | 'support' | 'confidential'
+	>;
 }
 
 /**
@@ -995,7 +1337,7 @@ export interface HeroSliceDefaultPrimary {
 export type HeroSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<HeroSliceDefaultPrimary>,
-	never
+	Simplify<HeroSliceDefaultItem>
 >;
 
 /**
@@ -1077,6 +1419,116 @@ export interface ServicesSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Trust Indicator 1 field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Evidence-Based Approaches
+	 * - **API ID Path**: services.default.primary.trust_indicator_1
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_1: prismic.KeyTextField;
+
+	/**
+	 * Trust Indicator 2 field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Confidential & Safe
+	 * - **API ID Path**: services.default.primary.trust_indicator_2
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_2: prismic.KeyTextField;
+
+	/**
+	 * Trust Indicator 3 field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Compassionate Care
+	 * - **API ID Path**: services.default.primary.trust_indicator_3
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_3: prismic.KeyTextField;
+
+	/**
+	 * Therapeutic Approach Section Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Why Choose Our Therapeutic Approach?
+	 * - **API ID Path**: services.default.primary.approach_section_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_section_title: prismic.KeyTextField;
+
+	/**
+	 * Therapeutic Approach Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Our evidence-based methods are tailored to your unique needs, ensuring personalized care that promotes lasting positive change.
+	 * - **API ID Path**: services.default.primary.approach_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_description: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 1 Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Personalized Treatment Plans
+	 * - **API ID Path**: services.default.primary.approach_feature_1_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_1_title: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 1 Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Customized therapy approaches based on your specific goals and needs.
+	 * - **API ID Path**: services.default.primary.approach_feature_1_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_1_description: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 2 Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Evidence-Based Methods
+	 * - **API ID Path**: services.default.primary.approach_feature_2_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_2_title: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 2 Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Proven therapeutic techniques backed by scientific research and clinical studies.
+	 * - **API ID Path**: services.default.primary.approach_feature_2_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_2_description: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 3 Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Compassionate Support
+	 * - **API ID Path**: services.default.primary.approach_feature_3_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_3_title: prismic.KeyTextField;
+
+	/**
+	 * Approach Feature 3 Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A safe, non-judgmental space where you can explore, heal, and grow at your own pace.
+	 * - **API ID Path**: services.default.primary.approach_feature_3_description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	approach_feature_3_description: prismic.KeyTextField;
 }
 
 /**
@@ -1268,6 +1720,66 @@ export interface TestimonialsSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/boolean
 	 */
 	auto_rotate: prismic.BooleanField;
+
+	/**
+	 * Trust Indicator 1 field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Verified Client Reviews
+	 * - **API ID Path**: testimonials.default.primary.trust_indicator_1
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_1: prismic.KeyTextField;
+
+	/**
+	 * Trust Indicator 2 field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Confidentiality Protected
+	 * - **API ID Path**: testimonials.default.primary.trust_indicator_2
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	trust_indicator_2: prismic.KeyTextField;
+
+	/**
+	 * Privacy Notice Title field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Client Privacy Protected
+	 * - **API ID Path**: testimonials.default.primary.privacy_notice_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	privacy_notice_title: prismic.KeyTextField;
+
+	/**
+	 * Privacy Notice Text field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: All testimonials are shared with explicit client consent. Names and identifying details may be changed to protect privacy while maintaining the authenticity of the therapeutic experience.
+	 * - **API ID Path**: testimonials.default.primary.privacy_notice_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	privacy_notice_text: prismic.KeyTextField;
+
+	/**
+	 * Call to Action Button Text field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Share Your Story - Schedule Today
+	 * - **API ID Path**: testimonials.default.primary.cta_button_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	cta_button_text: prismic.KeyTextField;
+
+	/**
+	 * Call to Action Button Link field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.cta_button_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta_button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -1402,6 +1914,7 @@ declare module '@prismicio/client' {
 			AllDocumentTypes,
 			AboutSectionSlice,
 			AboutSectionSliceDefaultPrimary,
+			AboutSectionSliceDefaultItem,
 			AboutSectionSliceVariation,
 			AboutSectionSliceDefault,
 			ContactFormSlice,
@@ -1421,6 +1934,7 @@ declare module '@prismicio/client' {
 			FieldsExampleSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
+			HeroSliceDefaultItem,
 			HeroSliceVariation,
 			HeroSliceDefault,
 			RichTextSlice,

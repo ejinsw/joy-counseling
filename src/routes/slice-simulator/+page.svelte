@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SliceSimulator } from '@slicemachine/adapter-sveltekit/simulator';
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
@@ -6,14 +6,14 @@
 	import { onMount } from 'svelte';
 	
 	let simulatorMounted = false;
-	let error = null;
+	let error: any = null;
 	
 	onMount(() => {
 		try {
 			simulatorMounted = true;
 			console.log('Slice simulator mounted, components:', Object.keys(components));
 		} catch (e) {
-			error = e.message;
+			error = (e as any).message;
 			console.error('Slice simulator error:', e);
 		}
 	});

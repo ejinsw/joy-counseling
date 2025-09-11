@@ -15,15 +15,16 @@
 		"slicemachine": "start-slicemachine"
 	},
 	"dependencies": {
+		"@lucide/svelte": "^0.544.0",
 		"@prismicio/client": "^7.17.3",
 		"@prismicio/svelte": "^2.0.0"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.9",
 		"@eslint/js": "^9.28.0",
-		"@slicemachine/adapter-sveltekit": "^0.3.83",
 		"@skeletonlabs/skeleton": "^3.2.0",
 		"@skeletonlabs/skeleton-svelte": "^1.5.1",
+		"@slicemachine/adapter-sveltekit": "^0.3.83",
 		"@sveltejs/adapter-auto": "^6.0.1",
 		"@sveltejs/kit": "^2.21.2",
 		"@sveltejs/vite-plugin-svelte": "^5.1.0",

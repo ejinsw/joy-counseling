@@ -12,13 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "professional_badge_text": {
-          "type": "Text",
-          "config": {
-            "label": "Professional Badge Text",
-            "placeholder": "Licensed Mental Health Professionals"
-          }
-        },
         "main_headline": {
           "type": "Text",
           "config": {
@@ -76,13 +69,6 @@
             "allowTargetBlank": false,
             "allowText": false,
             "repeat": false
-          }
-        },
-        "scroll_indicator_text": {
-          "type": "Text",
-          "config": {
-            "label": "Scroll Indicator Text",
-            "placeholder": "Scroll to learn more"
           }
         },
         "background_image": {
