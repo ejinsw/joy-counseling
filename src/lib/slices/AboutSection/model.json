@@ -6,7 +6,7 @@
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "Header",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -43,48 +43,6 @@
             "thumbnails": []
           }
         },
-        "professional_badge_text": {
-          "type": "Text",
-          "config": {
-            "label": "Professional Badge Text",
-            "placeholder": "Licensed Professional"
-          }
-        },
-        "credentials_section_title": {
-          "type": "Text",
-          "config": {
-            "label": "Credentials Section Title",
-            "placeholder": "Why Choose Our Practice"
-          }
-        },
-        "stats_section_title": {
-          "type": "Text",
-          "config": {
-            "label": "Statistics Section Title",
-            "placeholder": "Our Impact"
-          }
-        },
-        "years_experience": {
-          "type": "Number",
-          "config": {
-            "label": "Years of Experience",
-            "placeholder": "15"
-          }
-        },
-        "clients_helped": {
-          "type": "Number",
-          "config": {
-            "label": "Clients Helped",
-            "placeholder": "500"
-          }
-        },
-        "satisfaction_rate": {
-          "type": "Number",
-          "config": {
-            "label": "Client Satisfaction Rate (%)",
-            "placeholder": "98"
-          }
-        },
         "cta_button_text": {
           "type": "Text",
           "config": {
@@ -104,47 +62,91 @@
           }
         }
       },
-      "items": {
-        "credential_title": {
+      "items": {}
+    },
+    {
+      "id": "item",
+      "name": "Item-Left",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
           "type": "Text",
           "config": {
-            "label": "Credential Title",
-            "placeholder": "Licensed Professionals"
+            "label": "Title",
+            "placeholder": "About Us"
           }
         },
-        "credential_description": {
+        "subtitle": {
           "type": "Text",
           "config": {
-            "label": "Credential Description",
-            "placeholder": "Board-certified therapists with extensive training"
+            "label": "Subtitle",
+            "placeholder": "Your journey to healing and growth starts here"
           }
         },
-        "credential_icon": {
-          "type": "Select",
+        "content": {
+          "type": "StructuredText",
           "config": {
-            "label": "Credential Icon",
-            "options": [
-              "certificate",
-              "heart",
-              "shield",
-              "brain",
-              "support"
-            ]
+            "label": "Content",
+            "placeholder": "Share your story and mission...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
           }
         },
-        "credential_color": {
-          "type": "Select",
+        "image": {
+          "type": "Image",
           "config": {
-            "label": "Credential Color Theme",
-            "options": [
-              "primary",
-              "sage",
-              "lavender",
-              "secondary"
-            ]
+            "label": "Professional Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
-      }
+      },
+      "items": {}
+    },
+    {
+      "id": "itemRight",
+      "name": "Item-Right",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "About Us"
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "Your journey to healing and growth starts here"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Share your story and mission...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Professional Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -351,11 +351,11 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 export type AllDocumentTypes = FooterSettingsDocument | PageDocument | SettingsDocument;
 
 /**
- * Primary content in *AboutSection → Default → Primary*
+ * Primary content in *AboutSection → Header → Primary*
  */
 export interface AboutSectionSliceDefaultPrimary {
 	/**
-	 * Title field in *AboutSection → Default → Primary*
+	 * Title field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: About Us
@@ -365,7 +365,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	title: prismic.KeyTextField;
 
 	/**
-	 * Subtitle field in *AboutSection → Default → Primary*
+	 * Subtitle field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Your journey to healing and growth starts here
@@ -375,7 +375,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	subtitle: prismic.KeyTextField;
 
 	/**
-	 * Content field in *AboutSection → Default → Primary*
+	 * Content field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: Share your story and mission...
@@ -385,7 +385,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	content: prismic.RichTextField;
 
 	/**
-	 * Professional Image field in *AboutSection → Default → Primary*
+	 * Professional Image field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -395,67 +395,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	image: prismic.ImageField<never>;
 
 	/**
-	 * Professional Badge Text field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Licensed Professional
-	 * - **API ID Path**: about_section.default.primary.professional_badge_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	professional_badge_text: prismic.KeyTextField;
-
-	/**
-	 * Credentials Section Title field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Why Choose Our Practice
-	 * - **API ID Path**: about_section.default.primary.credentials_section_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	credentials_section_title: prismic.KeyTextField;
-
-	/**
-	 * Statistics Section Title field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Our Impact
-	 * - **API ID Path**: about_section.default.primary.stats_section_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	stats_section_title: prismic.KeyTextField;
-
-	/**
-	 * Years of Experience field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Number
-	 * - **Placeholder**: 15
-	 * - **API ID Path**: about_section.default.primary.years_experience
-	 * - **Documentation**: https://prismic.io/docs/fields/number
-	 */
-	years_experience: prismic.NumberField;
-
-	/**
-	 * Clients Helped field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Number
-	 * - **Placeholder**: 500
-	 * - **API ID Path**: about_section.default.primary.clients_helped
-	 * - **Documentation**: https://prismic.io/docs/fields/number
-	 */
-	clients_helped: prismic.NumberField;
-
-	/**
-	 * Client Satisfaction Rate (%) field in *AboutSection → Default → Primary*
-	 *
-	 * - **Field Type**: Number
-	 * - **Placeholder**: 98
-	 * - **API ID Path**: about_section.default.primary.satisfaction_rate
-	 * - **Documentation**: https://prismic.io/docs/fields/number
-	 */
-	satisfaction_rate: prismic.NumberField;
-
-	/**
-	 * Call to Action Button Text field in *AboutSection → Default → Primary*
+	 * Call to Action Button Text field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Start Your Journey Today
@@ -465,7 +405,7 @@ export interface AboutSectionSliceDefaultPrimary {
 	cta_button_text: prismic.KeyTextField;
 
 	/**
-	 * Call to Action Button Link field in *AboutSection → Default → Primary*
+	 * Call to Action Button Link field in *AboutSection → Header → Primary*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
@@ -476,52 +416,7 @@ export interface AboutSectionSliceDefaultPrimary {
 }
 
 /**
- * Primary content in *AboutSection → Items*
- */
-export interface AboutSectionSliceDefaultItem {
-	/**
-	 * Credential Title field in *AboutSection → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Licensed Professionals
-	 * - **API ID Path**: about_section.items[].credential_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	credential_title: prismic.KeyTextField;
-
-	/**
-	 * Credential Description field in *AboutSection → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Board-certified therapists with extensive training
-	 * - **API ID Path**: about_section.items[].credential_description
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	credential_description: prismic.KeyTextField;
-
-	/**
-	 * Credential Icon field in *AboutSection → Items*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about_section.items[].credential_icon
-	 * - **Documentation**: https://prismic.io/docs/fields/select
-	 */
-	credential_icon: prismic.SelectField<'certificate' | 'heart' | 'shield' | 'brain' | 'support'>;
-
-	/**
-	 * Credential Color Theme field in *AboutSection → Items*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about_section.items[].credential_color
-	 * - **Documentation**: https://prismic.io/docs/fields/select
-	 */
-	credential_color: prismic.SelectField<'primary' | 'sage' | 'lavender' | 'secondary'>;
-}
-
-/**
- * Default variation for AboutSection Slice
+ * Header variation for AboutSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -530,13 +425,132 @@ export interface AboutSectionSliceDefaultItem {
 export type AboutSectionSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<AboutSectionSliceDefaultPrimary>,
-	Simplify<AboutSectionSliceDefaultItem>
+	never
+>;
+
+/**
+ * Primary content in *AboutSection → Item-Left → Primary*
+ */
+export interface AboutSectionSliceItemPrimary {
+	/**
+	 * Title field in *AboutSection → Item-Left → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: About Us
+	 * - **API ID Path**: about_section.item.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *AboutSection → Item-Left → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Your journey to healing and growth starts here
+	 * - **API ID Path**: about_section.item.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Content field in *AboutSection → Item-Left → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Share your story and mission...
+	 * - **API ID Path**: about_section.item.primary.content
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Professional Image field in *AboutSection → Item-Left → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.item.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Item-Left variation for AboutSection Slice
+ *
+ * - **API ID**: `item`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSectionSliceItem = prismic.SharedSliceVariation<
+	'item',
+	Simplify<AboutSectionSliceItemPrimary>,
+	never
+>;
+
+/**
+ * Primary content in *AboutSection → Item-Right → Primary*
+ */
+export interface AboutSectionSliceItemRightPrimary {
+	/**
+	 * Title field in *AboutSection → Item-Right → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: About Us
+	 * - **API ID Path**: about_section.itemRight.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Subtitle field in *AboutSection → Item-Right → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Your journey to healing and growth starts here
+	 * - **API ID Path**: about_section.itemRight.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtitle: prismic.KeyTextField;
+
+	/**
+	 * Content field in *AboutSection → Item-Right → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Share your story and mission...
+	 * - **API ID Path**: about_section.itemRight.primary.content
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Professional Image field in *AboutSection → Item-Right → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_section.itemRight.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Item-Right variation for AboutSection Slice
+ *
+ * - **API ID**: `itemRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSectionSliceItemRight = prismic.SharedSliceVariation<
+	'itemRight',
+	Simplify<AboutSectionSliceItemRightPrimary>,
+	never
 >;
 
 /**
  * Slice variation for *AboutSection*
  */
-type AboutSectionSliceVariation = AboutSectionSliceDefault;
+type AboutSectionSliceVariation =
+	| AboutSectionSliceDefault
+	| AboutSectionSliceItem
+	| AboutSectionSliceItemRight;
 
 /**
  * AboutSection Shared Slice
@@ -1706,9 +1720,12 @@ declare module '@prismicio/client' {
 			AllDocumentTypes,
 			AboutSectionSlice,
 			AboutSectionSliceDefaultPrimary,
-			AboutSectionSliceDefaultItem,
+			AboutSectionSliceItemPrimary,
+			AboutSectionSliceItemRightPrimary,
 			AboutSectionSliceVariation,
 			AboutSectionSliceDefault,
+			AboutSectionSliceItem,
+			AboutSectionSliceItemRight,
 			ContactFormSlice,
 			ContactFormSliceDefaultPrimary,
 			ContactFormSliceDefaultItem,

@@ -1,38 +1,183 @@
-{
-  "id": "about_section",
-  "slice_type": "about_section",
-  "slice_label": null,
-  "version": "mock",
-  "variation": "default",
-  "primary": {
-    "title": "About Our Practice",
-    "content": [
-      {
-        "type": "paragraph",
-        "text": "We are a compassionate team of licensed mental health professionals dedicated to helping individuals, couples, and families navigate life's challenges and find healing.",
-        "spans": []
-      },
-      {
-        "type": "paragraph",
-        "text": "With over 15 years of combined experience, we specialize in evidence-based therapeutic approaches including Cognitive Behavioral Therapy (CBT), Emotionally Focused Therapy (EFT), and trauma-informed care.",
-        "spans": []
-      },
-      {
-        "type": "paragraph",
-        "text": "Our mission is to create a safe, non-judgmental space where you can explore your thoughts and feelings, develop healthy coping strategies, and build the life you deserve.",
-        "spans": []
-      }
-    ],
-    "image": {
-      "dimensions": {
-        "width": 600,
-        "height": 400
-      },
-      "alt": "Counseling office with comfortable seating",
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop"
-    },
-    "image_position": "left"
-  },
-  "items": []
-}
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "weather",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "card",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum consequat adipisicing ipsum in cillum esse duis velit quis."
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+					"width": 4010,
+					"height": 4010
+				},
+				"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+				"width": 4010,
+				"height": 4010,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "truth",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"cta_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "date",
+				"type": "Text"
+			},
+			"cta_button_link": {
+				"key": "17bd718e-151b-4d0f-b02f-93f2bb86c358",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "item",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "lower",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "secret",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non aliquip et voluptate eu duis dolore amet pariatur amet. Culpa consectetur sint cupidatat proident elit. Ea labore elit velit fugiat ad irure laborum veniam anim amet nostrud consectetur occaecat veniam."
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+					"width": 4172,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+				"width": 4172,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "father",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "itemRight",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "school",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "heat",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor elit ut incididunt culpa. Reprehenderit magna aliquip labore esse quis est cillum ea mollit culpa consequat est reprehenderit reprehenderit."
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
+				},
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+				"width": 3199,
+				"height": 3199,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "is",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]
