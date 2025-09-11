@@ -2,7 +2,7 @@
 	import { PrismicLink, PrismicRichText } from '@prismicio/svelte';
 	import { PrismicImage } from '@prismicio/svelte';
 	import { isFilled } from '@prismicio/client';
-	import type { AboutSectionSlice } from '../../../prismicio-types';
+	import type { AboutSectionSlice, AboutSectionSliceDefaultPrimary } from '../../../prismicio-types';
 
 	export let slice: AboutSectionSlice;
 
@@ -95,11 +95,11 @@
 						</div>
 					{/if}
 
-					{#if isFilled.keyText(primary.cta_button_text)}
+					{#if isFilled.keyText((primary as AboutSectionSliceDefaultPrimary).cta_button_text)}
 						<!-- Call to Action -->
 						<div class="pt-4">
 							<PrismicLink
-								field={primary.cta_button_link}
+								field={(primary as AboutSectionSliceDefaultPrimary).cta_button_link}
 								class="btn-primary inline-flex items-center gap-2 hover-lift focus-ring"
 							>
 								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@
 										d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
 									/>
 								</svg>
-								{primary.cta_button_text}
+								{(primary as AboutSectionSliceDefaultPrimary).cta_button_text}
 							</PrismicLink>
 						</div>
 					{/if}
