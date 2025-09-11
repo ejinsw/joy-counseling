@@ -7,6 +7,9 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { children, data } = $props();
+	
+	// Skip preview toolbar on simulator route
+	const isSimulator = $derived(page.url.pathname.startsWith('/slice-simulator'));
 </script>
 
 <svelte:head>
@@ -31,4 +34,7 @@
 
 <Footer settings={data?.settings?.data} footerSettings={data?.footerSettings?.data} />
 
-<PrismicPreview {repositoryName} />
+{#if !isSimulator}
+	<!-- Only load preview toolbar outside the simulator -->
+	<PrismicPreview {repositoryName} />
+{/if}

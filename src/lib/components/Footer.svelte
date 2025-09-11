@@ -57,24 +57,26 @@
 			</div>
 
 			<!-- Quick Links -->
-			<div>
-				<h4 class="text-lg font-serif font-semibold text-neutral-900 mb-6">Quick Links</h4>
-				<ul class="space-y-3">
-					{#each footerSettings.quick_links as link}
-						<li>
-							<PrismicLink
-								field={link.link}
-								class="text-neutral-700 hover:text-primary-600 transition-colors duration-200 flex items-center gap-2 group"
-							>
-								<ChevronRight
-									class="w-4 h-4 text-neutral-400 group-hover:text-primary-600 transition-colors duration-200"
-								/>
-								{link.label}
-							</PrismicLink>
-						</li>
-					{/each}
-				</ul>
-			</div>
+			{#if footerSettings?.quick_links && Array.isArray(footerSettings.quick_links) && footerSettings.quick_links.length > 0}
+				<div>
+					<h4 class="text-lg font-serif font-semibold text-neutral-900 mb-6">Quick Links</h4>
+					<ul class="space-y-3">
+						{#each footerSettings.quick_links as link}
+							<li>
+								<PrismicLink
+									field={link?.link}
+									class="text-neutral-700 hover:text-primary-600 transition-colors duration-200 flex items-center gap-2 group"
+								>
+									<ChevronRight
+										class="w-4 h-4 text-neutral-400 group-hover:text-primary-600 transition-colors duration-200"
+									/>
+									{link?.label || 'Untitled'}
+								</PrismicLink>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			{/if}
 
 			<!-- Contact Information -->
 			<div class="flex flex-col">
