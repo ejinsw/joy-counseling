@@ -36,7 +36,7 @@
 				</div>
 
 				<p class="text-neutral-700 leading-relaxed mb-6 max-w-md">
-					{footerSettings.description}
+					{footerSettings?.description}
 				</p>
 
 				<!-- Professional Credentials -->
@@ -82,31 +82,31 @@
 			<div class="flex flex-col">
 				<h4 class="text-lg font-serif font-semibold text-neutral-900 mb-6">Get in Touch</h4>
 				<div>
-					{#if footerSettings.phone_number}
+					{#if footerSettings?.phone_number}
 						<div class="flex items-start gap-3">
 							<Phone class="w-5 h-5 text-primary-600" />
 							<p class="text-sm font-medium text-neutral-900">Phone:</p>
 							<a
-								href={`tel:${footerSettings.phone_number}`}
+								href={`tel:${footerSettings?.phone_number}`}
 								class="text-primary-600 hover:text-primary-700 transition-colors duration-200"
 								>{footerSettings.phone_number}</a
 							>
 						</div>
 					{/if}
 
-					{#if footerSettings.email}
+					{#if footerSettings?.email}
 						<div class="flex items-start gap-3">
 							<Mail class="w-5 h-5 text-sage-600" />
 							<p class="text-sm font-medium text-neutral-900">Email:</p>
 							<a
-								href={`mailto:${footerSettings.email}`}
+								href={`mailto:${footerSettings?.email}`}
 								class="text-primary-600 hover:text-primary-700 transition-colors duration-200 break-words"
 								>{footerSettings.email}</a
 							>
 						</div>
 					{/if}
 
-					{#if footerSettings.address}
+					{#if footerSettings?.address}
 						<div class="flex items-start gap-3">
 							<MapPin class="w-5 h-5 text-lavender-600" />
 							<p class="text-sm font-medium text-neutral-900">Address:</p>
@@ -118,9 +118,11 @@
 					<div class="pt-4 border-t border-neutral-200">
 						<p class="text-sm font-medium text-neutral-900 mb-2">Business Hours:</p>
 						<div class="text-sm text-neutral-700 space-y-1">
-							{#each footerSettings.business_hours as hour}
-								<p>{hour.hours}</p>
-							{/each}
+							{#if footerSettings?.business_hours}
+								{#each footerSettings?.business_hours as hour}
+									<p>{hour.hours}</p>
+								{/each}
+							{/if}
 						</div>
 					</div>
 				</div>

@@ -31,7 +31,4 @@
 
 <Footer settings={data?.settings?.data} footerSettings={data?.footerSettings?.data} />
 
-{#if !$page.url.pathname.startsWith('/slice-simulator')}
-	<!-- Only load preview toolbar outside the simulator -->
-	<PrismicPreview {repositoryName} />
-{/if}
+<PrismicPreview {repositoryName} />
