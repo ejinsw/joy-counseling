@@ -586,107 +586,6 @@ export interface ContactFormSliceDefaultPrimary {
 	subtitle: prismic.KeyTextField;
 
 	/**
-	 * Background Color field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose background color for the section
-	 * - **API ID Path**: contact_form.default.primary.background_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	background_color: prismic.ColorField;
-
-	/**
-	 * Text Color field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose text color for good contrast
-	 * - **API ID Path**: contact_form.default.primary.text_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	text_color: prismic.ColorField;
-
-	/**
-	 * Accent Color field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Color
-	 * - **Placeholder**: Choose accent color for buttons and highlights
-	 * - **API ID Path**: contact_form.default.primary.accent_color
-	 * - **Documentation**: https://prismic.io/docs/fields/color
-	 */
-	accent_color: prismic.ColorField;
-
-	/**
-	 * Layout Style field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: contact_form.default.primary.layout
-	 * - **Documentation**: https://prismic.io/docs/fields/select
-	 */
-	layout: prismic.SelectField<'form-left' | 'form-right' | 'centered' | 'split'>;
-
-	/**
-	 * Show Contact Information field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: true
-	 * - **API ID Path**: contact_form.default.primary.show_contact_info
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	show_contact_info: prismic.BooleanField;
-
-	/**
-	 * Form Submit Button Text field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Send Message
-	 * - **API ID Path**: contact_form.default.primary.form_submit_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	form_submit_text: prismic.KeyTextField;
-
-	/**
-	 * Success Message field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Thank you! We'll get back to you soon.
-	 * - **API ID Path**: contact_form.default.primary.success_message
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	success_message: prismic.KeyTextField;
-
-	/**
-	 * Contact Info Title field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Contact Information
-	 * - **API ID Path**: contact_form.default.primary.contact_info_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_info_title: prismic.KeyTextField;
-
-	/**
-	 * Encouraging Message Title field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Taking the first step takes courage
-	 * - **API ID Path**: contact_form.default.primary.encouraging_message_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	encouraging_message_title: prismic.KeyTextField;
-
-	/**
-	 * Encouraging Message Text field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: We're here to support you. All conversations are confidential and we typically respond within 24 hours.
-	 * - **API ID Path**: contact_form.default.primary.encouraging_message_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	encouraging_message_text: prismic.KeyTextField;
-
-	/**
 	 * Form Header Title field in *ContactForm → Default → Primary*
 	 *
 	 * - **Field Type**: Text
@@ -705,162 +604,6 @@ export interface ContactFormSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	form_header_description: prismic.KeyTextField;
-
-	/**
-	 * Privacy Notice Title field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Your Privacy Matters
-	 * - **API ID Path**: contact_form.default.primary.privacy_notice_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	privacy_notice_title: prismic.KeyTextField;
-
-	/**
-	 * Privacy Notice Text field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: All communications are strictly confidential and protected by professional counseling standards.
-	 * - **API ID Path**: contact_form.default.primary.privacy_notice_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	privacy_notice_text: prismic.KeyTextField;
-
-	/**
-	 * Consent Checkbox Text field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: I understand that this form is secure and my information will be kept confidential. I consent to being contacted about scheduling an appointment.
-	 * - **API ID Path**: contact_form.default.primary.consent_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	consent_text: prismic.KeyTextField;
-
-	/**
-	 * Success Message Title field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Thank You for Reaching Out
-	 * - **API ID Path**: contact_form.default.primary.success_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	success_title: prismic.KeyTextField;
-
-	/**
-	 * Success Message Description field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: We've received your message and will respond within 24 hours. Taking this step shows real strength.
-	 * - **API ID Path**: contact_form.default.primary.success_description
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	success_description: prismic.KeyTextField;
-
-	/**
-	 * Success Next Steps Text field in *ContactForm → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: What's next? We'll review your message and reach out to schedule a brief consultation where we can discuss your needs and answer any questions.
-	 * - **API ID Path**: contact_form.default.primary.success_next_steps
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	success_next_steps: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *ContactForm → Items*
- */
-export interface ContactFormSliceDefaultItem {
-	/**
-	 * Contact Field Type field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: text
-	 * - **API ID Path**: contact_form.items[].contact_field
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_field: prismic.KeyTextField;
-
-	/**
-	 * Field Label field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Full Name
-	 * - **API ID Path**: contact_form.items[].field_label
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	field_label: prismic.KeyTextField;
-
-	/**
-	 * Field Placeholder field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Enter your full name
-	 * - **API ID Path**: contact_form.items[].field_placeholder
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	field_placeholder: prismic.KeyTextField;
-
-	/**
-	 * Required Field field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: true
-	 * - **API ID Path**: contact_form.items[].required
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	required: prismic.BooleanField;
-
-	/**
-	 * Field Options (for select fields) field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Option 1, Option 2, Option 3
-	 * - **API ID Path**: contact_form.items[].field_options
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	field_options: prismic.KeyTextField;
-
-	/**
-	 * Contact Info Icon field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: phone
-	 * - **API ID Path**: contact_form.items[].contact_info_icon
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_info_icon: prismic.KeyTextField;
-
-	/**
-	 * Contact Info Title field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Phone
-	 * - **API ID Path**: contact_form.items[].contact_info_title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_info_title: prismic.KeyTextField;
-
-	/**
-	 * Contact Info Content field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: +1 (555) 123-4567
-	 * - **API ID Path**: contact_form.items[].contact_info_content
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_info_content: prismic.KeyTextField;
-
-	/**
-	 * Contact Info Link (optional) field in *ContactForm → Items*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: contact_form.items[].contact_info_link
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	contact_info_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -873,7 +616,7 @@ export interface ContactFormSliceDefaultItem {
 export type ContactFormSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<ContactFormSliceDefaultPrimary>,
-	Simplify<ContactFormSliceDefaultItem>
+	never
 >;
 
 /**
@@ -1728,7 +1471,6 @@ declare module '@prismicio/client' {
 			AboutSectionSliceItemRight,
 			ContactFormSlice,
 			ContactFormSliceDefaultPrimary,
-			ContactFormSliceDefaultItem,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
 			FaqSlice,
