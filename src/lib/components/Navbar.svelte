@@ -1,13 +1,13 @@
 <script lang="ts">
   import { page } from '$app/state';
-  let { brand = 'Counseling Services' } = $props<{ brand?: string }>();
+	import type { SettingsDocumentData } from '../../prismicio-types';
+	import Logo from './Logo.svelte';
+  let { settings } = $props<{ settings?: SettingsDocumentData }>();
   let isOpen = $state(false);
 
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
-    { href: '/services', label: 'Services' },
-    { href: '/testimonials', label: 'Testimonials' },
     { href: '/contact', label: 'Contact' }
   ];
 
@@ -26,13 +26,11 @@
       <!-- Logo/Brand -->
       <a href="/" class="flex items-center gap-3 group focus-ring rounded-lg" onclick={closeMobileMenu}>
         <div class="w-10 h-10 bg-healing-gradient rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-          <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-          </svg>
+          <Logo class="w-6 h-6 text-primary-700" />
         </div>
         <div class="hidden sm:block">
-          <h1 class="text-xl font-serif font-semibold text-neutral-900 leading-none">{brand}</h1>
-          <p class="text-sm text-neutral-600 font-light leading-none">Healing & Growth</p>
+          <h1 class="text-xl font-serif font-semibold text-neutral-900 leading-none">{settings?.company_name}</h1>
+          <p class="text-sm text-neutral-600 font-light leading-none">{settings?.tagline}</p>
         </div>
       </a>
 

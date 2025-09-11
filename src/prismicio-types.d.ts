@@ -57,6 +57,129 @@ type ContentRelationshipFieldWithData<
 	>;
 }[Exclude<TCustomType[number], string>['id']];
 
+/**
+ * Item in *Footer Settings → Business Hours*
+ */
+export interface FooterSettingsDocumentDataBusinessHoursItem {
+	/**
+	 * Hours field in *Footer Settings → Business Hours*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: i.e. Monday - Friday: 9:00 AM - 7:00 PM
+	 * - **API ID Path**: footer_settings.business_hours[].hours
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	hours: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Footer Settings → Quick Links*
+ */
+export interface FooterSettingsDocumentDataQuickLinksItem {
+	/**
+	 * Label field in *Footer Settings → Quick Links*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.quick_links[].label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+
+	/**
+	 * Link field in *Footer Settings → Quick Links*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.quick_links[].link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Footer Settings documents
+ */
+interface FooterSettingsDocumentData {
+	/**
+	 * Description field in *Footer Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Write a brief descriptive caption...
+	 * - **API ID Path**: footer_settings.description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description: prismic.KeyTextField;
+
+	/**
+	 * Phone Number field in *Footer Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.phone_number
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	phone_number: prismic.KeyTextField;
+
+	/**
+	 * Email field in *Footer Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.email
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	email: prismic.KeyTextField;
+
+	/**
+	 * Address field in *Footer Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.address
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	address: prismic.KeyTextField;
+
+	/**
+	 * Business Hours field in *Footer Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.business_hours[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	business_hours: prismic.GroupField<Simplify<FooterSettingsDocumentDataBusinessHoursItem>>;
+
+	/**
+	 * Quick Links field in *Footer Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer_settings.quick_links[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	quick_links: prismic.GroupField<Simplify<FooterSettingsDocumentDataQuickLinksItem>>;
+}
+
+/**
+ * Footer Settings document from Prismic
+ *
+ * - **API ID**: `footer_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterSettingsDocument<Lang extends string = string> =
+	prismic.PrismicDocumentWithoutUID<Simplify<FooterSettingsDocumentData>, 'footer_settings', Lang>;
+
 type PageDocumentDataSlicesSlice =
 	| FaqSlice
 	| ContactFormSlice
@@ -144,15 +267,15 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
  */
 interface SettingsDocumentData {
 	/**
-	 * Site Name field in *Settings*
+	 * Company Name field in *Settings*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: settings.site_name
+	 * - **API ID Path**: settings.company_name
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
-	site_name: prismic.KeyTextField;
+	company_name: prismic.KeyTextField;
 
 	/**
 	 * Tagline field in *Settings*
@@ -164,6 +287,17 @@ interface SettingsDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	tagline: prismic.KeyTextField;
+
+	/**
+	 * Logo field in *Settings*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.logo
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	logo: prismic.ImageField<never>;
 
 	/**
 	 * Email field in *Settings*
@@ -197,17 +331,6 @@ interface SettingsDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	address: prismic.KeyTextField;
-
-	/**
-	 * Logo field in *Settings*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: settings.logo
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	logo: prismic.ImageField<never>;
 }
 
 /**
@@ -225,7 +348,7 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes = FooterSettingsDocument | PageDocument | SettingsDocument;
 
 /**
  * Primary content in *AboutSection → Default → Primary*
@@ -1571,6 +1694,10 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			FooterSettingsDocument,
+			FooterSettingsDocumentData,
+			FooterSettingsDocumentDataBusinessHoursItem,
+			FooterSettingsDocumentDataQuickLinksItem,
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,

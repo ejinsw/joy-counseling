@@ -1,0 +1,82 @@
+{
+	"format": "custom",
+	"id": "footer_settings",
+	"label": "Footer Settings",
+	"repeatable": false,
+	"status": true,
+	"json": {
+		"Main": {
+			"description": {
+				"type": "Text",
+				"config": {
+					"label": "Description",
+					"placeholder": "Write a brief descriptive caption..."
+				}
+			},
+			"phone_number": {
+				"type": "Text",
+				"config": {
+					"label": "Phone Number",
+					"placeholder": ""
+				}
+			},
+			"email": {
+				"type": "Text",
+				"config": {
+					"label": "Email",
+					"placeholder": ""
+				}
+			},
+			"address": {
+				"type": "Text",
+				"config": {
+					"label": "Address",
+					"placeholder": ""
+				}
+			},
+			"business_hours": {
+				"type": "Group",
+				"config": {
+					"label": "Business Hours",
+					"repeat": true,
+					"fields": {
+						"hours": {
+							"type": "Text",
+							"config": {
+								"label": "Hours",
+								"placeholder": "i.e. Monday - Friday: 9:00 AM - 7:00 PM"
+							}
+						}
+					}
+				}
+			},
+			"quick_links": {
+				"type": "Group",
+				"config": {
+					"label": "Quick Links",
+					"repeat": true,
+					"fields": {
+						"label": {
+							"type": "Text",
+							"config": {
+								"label": "Label",
+								"placeholder": ""
+							}
+						},
+						"link": {
+							"type": "Link",
+							"config": {
+								"label": "Link",
+								"placeholder": "",
+								"select": null,
+								"allowTargetBlank": true,
+								"allowText": false,
+								"repeat": false
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

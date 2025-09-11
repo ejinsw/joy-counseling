@@ -23,13 +23,12 @@
 	{/if}
 </svelte:head>
 
-<Navbar brand={data?.settings?.siteName ?? 'Counseling Services'} />
+<Navbar settings={data?.settings?.data} />
 
 <main class="min-h-screen">
 	{@render children()}
 </main>
 
-<Footer company={data?.settings?.siteName ?? 'Counseling Services'} tagline={data?.settings?.tagline}
-  email={data?.settings?.email} phone={data?.settings?.phone} address={data?.settings?.address} />
+<Footer settings={data?.settings?.data} footerSettings={data?.footerSettings?.data} />
 
 <PrismicPreview {repositoryName} />

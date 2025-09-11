@@ -6,10 +6,10 @@
 	"status": true,
 	"json": {
 		"Main": {
-			"site_name": {
+			"company_name": {
 				"type": "Text",
 				"config": {
-					"label": "Site Name",
+					"label": "Company Name",
 					"placeholder": ""
 				}
 			},
@@ -18,6 +18,14 @@
 				"config": {
 					"label": "Tagline",
 					"placeholder": ""
+				}
+			},
+			"logo": {
+				"type": "Image",
+				"config": {
+					"label": "Logo",
+					"constraint": {},
+					"thumbnails": []
 				}
 			},
 			"email": {
@@ -39,14 +47,6 @@
 				"config": {
 					"label": "Address",
 					"placeholder": ""
-				}
-			},
-			"logo": {
-				"type": "Image",
-				"config": {
-					"label": "Logo",
-					"constraint": {},
-					"thumbnails": []
 				}
 			}
 		}
