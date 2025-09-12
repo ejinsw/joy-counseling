@@ -113,39 +113,6 @@ interface FooterSettingsDocumentData {
 	description: prismic.KeyTextField;
 
 	/**
-	 * Phone Number field in *Footer Settings*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer_settings.phone_number
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	phone_number: prismic.KeyTextField;
-
-	/**
-	 * Email field in *Footer Settings*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer_settings.email
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	email: prismic.KeyTextField;
-
-	/**
-	 * Address field in *Footer Settings*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer_settings.address
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	address: prismic.KeyTextField;
-
-	/**
 	 * Business Hours field in *Footer Settings*
 	 *
 	 * - **Field Type**: Group

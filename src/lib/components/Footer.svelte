@@ -31,7 +31,7 @@
 						<h3 class="text-xl font-serif font-semibold text-neutral-900">
 							{settings?.company_name}
 						</h3>
-						<p class="text-sm text-neutral-600">{settings?.tagline}</p>
+						<h4 class="text-sm text-neutral-600">{settings?.tagline}</h4>
 					</div>
 				</div>
 
@@ -82,35 +82,35 @@
 			<div class="flex flex-col">
 				<h4 class="text-lg font-serif font-semibold text-neutral-900 mb-6">Get in Touch</h4>
 				<div>
-					{#if footerSettings?.phone_number}
+					{#if settings?.phone_number}
 						<div class="flex items-start gap-3">
 							<Phone class="w-5 h-5 text-primary-600" />
 							<p class="text-sm font-medium text-neutral-900">Phone:</p>
 							<a
-								href={`tel:${footerSettings?.phone_number}`}
+								href={`tel:${settings?.phone_number}`}
 								class="text-primary-600 hover:text-primary-700 transition-colors duration-200"
-								>{footerSettings.phone_number}</a
+								>{settings.phone_number}</a
 							>
 						</div>
 					{/if}
 
-					{#if footerSettings?.email}
+					{#if settings?.email}
 						<div class="flex items-start gap-3">
 							<Mail class="w-5 h-5 text-sage-600" />
 							<p class="text-sm font-medium text-neutral-900">Email:</p>
 							<a
-								href={`mailto:${footerSettings?.email}`}
+								href={`mailto:${settings?.email}`}
 								class="text-primary-600 hover:text-primary-700 transition-colors duration-200 break-words"
-								>{footerSettings.email}</a
+								>{settings.email}</a
 							>
 						</div>
 					{/if}
 
-					{#if footerSettings?.address}
+					{#if settings?.address}
 						<div class="flex items-start gap-3">
 							<MapPin class="w-5 h-5 text-lavender-600" />
 							<p class="text-sm font-medium text-neutral-900">Address:</p>
-							<p class="text-neutral-700 leading-relaxed">{footerSettings.address}</p>
+							<p class="text-neutral-700 leading-relaxed">{settings.address}</p>
 						</div>
 					{/if}
 

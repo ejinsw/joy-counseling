@@ -13,27 +13,6 @@
 					"placeholder": "Write a brief descriptive caption..."
 				}
 			},
-			"phone_number": {
-				"type": "Text",
-				"config": {
-					"label": "Phone Number",
-					"placeholder": ""
-				}
-			},
-			"email": {
-				"type": "Text",
-				"config": {
-					"label": "Email",
-					"placeholder": ""
-				}
-			},
-			"address": {
-				"type": "Text",
-				"config": {
-					"label": "Address",
-					"placeholder": ""
-				}
-			},
 			"business_hours": {
 				"type": "Group",
 				"config": {
