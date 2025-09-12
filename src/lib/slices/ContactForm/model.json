@@ -39,6 +39,29 @@
             "label": "Form Header Description",
             "placeholder": "Please share some information about yourself and what brings you here today."
           }
+        },
+        "reception_email": {
+          "type": "Text",
+          "config": {
+            "label": "Reception Email",
+            "placeholder": "example@service.com"
+          }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Services",
+            "repeat": true,
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

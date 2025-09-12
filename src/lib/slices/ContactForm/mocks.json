@@ -22,6 +22,29 @@
 				"__TYPE__": "FieldContent",
 				"value": "Please share some information about yourself and what brings you here today. All conversations are confidential.",
 				"type": "Text"
+			},
+			"services": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "arrive",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"reception_email": {
+				"__TYPE__": "FieldContent",
+				"value": "deal",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -529,6 +529,21 @@ type AboutSectionSliceVariation =
 export type AboutSectionSlice = prismic.SharedSlice<'about_section', AboutSectionSliceVariation>;
 
 /**
+ * Item in *ContactForm → Default → Primary → Services*
+ */
+export interface ContactFormSliceDefaultPrimaryServicesItem {
+	/**
+	 * Name field in *ContactForm → Default → Primary → Services*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.default.primary.services[].name
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	name: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *ContactForm → Default → Primary*
  */
 export interface ContactFormSliceDefaultPrimary {
@@ -571,6 +586,26 @@ export interface ContactFormSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	form_header_description: prismic.KeyTextField;
+
+	/**
+	 * Reception Email field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: example@service.com
+	 * - **API ID Path**: contact_form.default.primary.reception_email
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	reception_email: prismic.KeyTextField;
+
+	/**
+	 * Services field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.default.primary.services[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	services: prismic.GroupField<Simplify<ContactFormSliceDefaultPrimaryServicesItem>>;
 }
 
 /**
@@ -1437,6 +1472,7 @@ declare module '@prismicio/client' {
 			AboutSectionSliceItem,
 			AboutSectionSliceItemRight,
 			ContactFormSlice,
+			ContactFormSliceDefaultPrimaryServicesItem,
 			ContactFormSliceDefaultPrimary,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
