@@ -40,7 +40,8 @@
             "placeholder": "Please share some information about yourself and what brings you here today."
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
