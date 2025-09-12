@@ -23,12 +23,16 @@
 	{/if}
 </svelte:head>
 
+{#if !$page.url.pathname.startsWith('/slice-simulator')}
 <Navbar settings={data?.settings?.data} />
+{/if}
 
 <main class="min-h-screen">
 	{@render children()}
 </main>
 
+{#if !$page.url.pathname.startsWith('/slice-simulator')}
 <Footer settings={data?.settings?.data} footerSettings={data?.footerSettings?.data} />
 
 <PrismicPreview {repositoryName} />
+{/if}
