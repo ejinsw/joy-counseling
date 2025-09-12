@@ -3,7 +3,7 @@
   import { PrismicRichText } from '@prismicio/svelte';
   import { PrismicLink } from '@prismicio/svelte';
   import { isFilled } from '@prismicio/client';
-  import { Heart, Brain, MessageCircle, Trees, Users, Handshake, Leaf, CheckIcon, Clock, Lock } from '@lucide/svelte';
+  import { Heart, Brain, MessageCircle, Trees, Users, Handshake, Leaf, CheckIcon, Clock, Lock, Cross, Dog } from '@lucide/svelte';
 
   export let slice: ServicesSlice;
 
@@ -40,7 +40,15 @@
       mindfulness: {
         icon: Leaf,
         color: 'text-indigo-500'
-      }
+      },
+	  christ: {
+		icon: Cross,
+		color: 'text-primary-500'
+	  },
+	  animal: {
+		icon: Dog,
+		color: 'text-primary-500'
+	  }
     };
     
     return iconMap[iconType] || { svg: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z', color: 'text-primary-500' };

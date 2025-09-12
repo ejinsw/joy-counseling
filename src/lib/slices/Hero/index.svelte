@@ -37,8 +37,7 @@
 		<div class="absolute inset-0">
 			<PrismicImage field={primary.background_image} class="w-full h-full object-cover" />
 			<!-- Professional overlay for text readability -->
-			<div class="absolute inset-0 bg- opacity-40">
-				<img src="/overlay.png" alt="Overlay" class="w-full h-full object-cover" />
+			<div class="absolute inset-0 bg-neutral-900 opacity-50">
 			</div>
 		</div>
 	{:else}
@@ -55,22 +54,22 @@
 		<div class="max-w-5xl mx-auto text-center">
 			<!-- Main Headline -->
 			{#if isFilled.keyText(primary.main_headline)}
-				<h1 class="text-display mb-6 slide-up text-neutral-900 max-w-4xl mx-auto">
+				<h1 class="text-display mb-6 slide-up text-neutral-50 max-w-4xl mx-auto">
 					{primary.main_headline}
 				</h1>
 			{/if}
 
 			<!-- Sub Headline -->
 			{#if isFilled.keyText(primary.sub_headline)}
-				<p class="text-subtitle mb-8 slide-up max-w-3xl mx-auto" style="animation-delay: 0.2s">
+				<h2 class="text-subtitle mb-8 slide-up max-w-3xl mx-auto text-neutral-200" style="animation-delay: 0.2s">
 					{primary.sub_headline}
-				</p>
+        </h2>
 			{/if}
 
 			<!-- Description -->
 			{#if isFilled.richText(primary.description)}
 				<div
-					class="prose prose-lg mx-auto mb-10 text-neutral-700 slide-up max-w-2xl"
+					class="prose prose-lg mx-auto mb-10 text-neutral-300 slide-up max-w-2xl"
 					style="animation-delay: 0.4s"
 				>
 					<PrismicRichText field={primary.description} />

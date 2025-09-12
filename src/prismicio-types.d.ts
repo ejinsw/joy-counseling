@@ -628,7 +628,7 @@ type ContactFormSliceVariation = ContactFormSliceDefault;
  * ContactForm Shared Slice
  *
  * - **API ID**: `contact_form`
- * - **Description**: Contact form with customizable fields, styling, and contact information
+ * - **Description**: Simple contact form for counseling inquiries
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
@@ -1249,9 +1249,9 @@ export interface ServicesSliceDefaultItem {
 		| 'family'
 		| 'couple'
 		| 'mindfulness'
-		| 'healing'
-		| 'support'
 		| 'wellness'
+		| 'christ'
+		| 'animal'
 	>;
 
 	/**

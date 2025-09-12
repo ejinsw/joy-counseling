@@ -48,6 +48,7 @@
           "type": "Select",
           "config": {
             "label": "Service Icon",
+            "placeholder": "",
             "options": [
               "heart",
               "brain",
@@ -56,9 +57,9 @@
               "family",
               "couple",
               "mindfulness",
-              "healing",
-              "support",
-              "wellness"
+              "wellness",
+              "christ",
+              "animal"
             ]
           }
         },
