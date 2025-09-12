@@ -118,15 +118,6 @@
 			</div>
 		{:else}
 			<!-- Item-Left and Item-Right Variants -->
-			<!-- Subtitle above content (if available) -->
-			{#if isFilled.keyText(primary.subtitle)}
-				<div class="text-center mb-12 max-w-3xl mx-auto">
-					<p class="text-subtitle text-neutral-600">
-						{primary.subtitle}
-					</p>
-				</div>
-			{/if}
-
 			<!-- Main Content with conditional layout -->
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20 items-center">
 				<!-- Image - Left for Item-Left, Right for Item-Right -->
@@ -186,12 +177,20 @@
 
 				<!-- Content -->
 				<div class="order-1 {slice.variation === 'item' ? 'lg:order-2' : 'lg:order-1'} space-y-8">
-					<!-- Title right above the text content -->
-					{#if isFilled.keyText(primary.title)}
-						<h2 class="text-display-lg mb-6 text-neutral-900">
-							{primary.title}
-						</h2>
-					{/if}
+					<!-- Title and Subtitle -->
+					<div>
+						{#if isFilled.keyText(primary.title)}
+							<h2 class="text-display-lg mb-6 text-neutral-900">
+								{primary.title}
+							</h2>
+						{/if}
+
+						{#if isFilled.keyText(primary.subtitle)}
+							<p class="text-subtitle text-neutral-600 mb-6">
+								{primary.subtitle}
+							</p>
+						{/if}
+					</div>
 
 					<!-- Main content -->
 					{#if isFilled.richText(primary.content)}
