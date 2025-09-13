@@ -24,9 +24,7 @@
 			<!-- Company Info -->
 			<div class="lg:col-span-2">
 				<div class="flex items-center gap-3 mb-6">
-					<div class="w-12 h-12 bg-healing-gradient rounded-xl flex items-center justify-center">
-						<Logo class="w-7 h-7 text-primary-700" />
-					</div>
+					<Logo class="w-10 h-10" image={settings?.logo} />
 					<div>
 						<h3 class="text-xl font-serif font-semibold text-neutral-900">
 							{settings?.company_name}
