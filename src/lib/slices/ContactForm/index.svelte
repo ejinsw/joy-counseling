@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { ContactFormSlice } from '../../../prismicio-types';
 	import { isFilled } from '@prismicio/client';
-	import emailjs from '@emailjs/browser';
-	import { EMAILJS_CONFIG, type EmailTemplateParams } from '../../config/emailjs';
 
 	export let slice: ContactFormSlice;
 
@@ -21,31 +19,39 @@
 			const form = event.target as HTMLFormElement;
 			const formData = new FormData(form);
 
-			// Prepare email template parameters
-			const templateParams: EmailTemplateParams = {
-				from_name: `${formData.get('first_name')} ${formData.get('last_name')}`,
-				from_email: formData.get('email') as string,
-				phone: (formData.get('phone') as string) || 'Not provided',
-				service: formData.get('service') as string,
-				has_insurance: formData.get('has_insurance') as string,
-				insurance_provider: (formData.get('insurance_provider') as string) || 'Not provided',
-				message: (formData.get('message') as string) || 'No message provided',
-				to_email: slice.primary.reception_email as string,
+			// Prepare form data for API
+			const formDataObj = {
+				first_name: formData.get('first_name'),
+				last_name: formData.get('last_name'),
+				email: formData.get('email'),
+				phone: formData.get('phone'),
+				service: formData.get('service'),
+				has_insurance: formData.get('has_insurance'),
+				insurance_provider: formData.get('insurance_provider'),
+				message: formData.get('message'),
+				reception_email: slice.primary.reception_email as string,
 			};
 
-			// Send email using EmailJS
-			await emailjs.send(
-				EMAILJS_CONFIG.SERVICE_ID,
-				EMAILJS_CONFIG.TEMPLATE_ID,
-				templateParams,
-				EMAILJS_CONFIG.PUBLIC_KEY
-			);
+			// Send to API endpoint
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formDataObj),
+			});
+
+			const result = await response.json();
+
+			if (!response.ok) {
+				throw new Error(result.error || 'Failed to send message');
+			}
 
 			isSubmitted = true;
 			form.reset(); // Clear the form
 		} catch (error) {
-			console.error('Email sending failed:', error);
-			submitError = 'Failed to send message. Please try again or contact us directly.';
+			console.error('Form submission failed:', error);
+			submitError = error instanceof Error ? error.message : 'Failed to send message. Please try again or contact us directly.';
 		} finally {
 			isSubmitting = false;
 		}
