@@ -37,8 +37,8 @@
 		<div class="absolute inset-0">
 			<PrismicImage field={primary.background_image} class="w-full h-full object-cover" />
 			<!-- Professional overlay for text readability -->
-			<div class="absolute inset-0 bg-neutral-900 opacity-50">
-			</div>
+			<!-- <div class="absolute inset-0 bg-neutral-900 opacity-20">
+			</div> -->
 		</div>
 	{:else}
 		<div class="absolute inset-0">
