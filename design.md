@@ -4,7 +4,7 @@
 
 This site exists to help people in emotional pain take a next step toward care. It should point beyond itself: to counseling in Jesus' name, to the warm welcome of Christ, and to practical help from a trustworthy counselor. The website is a bridge to care, not the destination.
 
-The design language is humble, warm, clear, and professional. It should never feel like a sales funnel, a generic therapy template, or an AI-generated wellness page.
+The design language is humble, warm, clear, and premium. It should never feel like a sales funnel, a generic therapy template, an entry-level wellness page, or an AI-generated mood board.
 
 ## Current Audit
 
@@ -43,9 +43,9 @@ The site may name Jesus, Christ, and the cross in design guidance, section frami
 
 The site should reduce emotional load. Prefer open space, clear hierarchy, plain language, and one obvious next step. Do not crowd visitors with trust badges, repeated CTAs, or busy feature cards.
 
-### Warm Professionalism
+### Premium Professionalism
 
-Visitors should feel safe and oriented. The site should feel clinically credible without becoming cold, and pastoral without becoming sentimental.
+Visitors should feel safe and oriented. The site should feel clinically credible without becoming cold, pastoral without becoming sentimental, and polished without becoming flashy.
 
 ### Existing Data First
 
@@ -81,7 +81,7 @@ The color direction should feel like steady clinical care beside quiet pastoral 
 
 ### Typography
 
-Use a single readable sans stack:
+Use the platform sans stack:
 
 `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`
 
@@ -105,13 +105,15 @@ Suggested scale:
 
 ### Shape and Shadow
 
-- One radius scale: `16px` for panels and images, `999px` for buttons only.
-- Shadow is rare and soft. Prefer `0 18px 45px rgb(63 77 53 / 0.10)` only when elevation is useful.
+- One radius scale: `6px` for panels, forms, media corners, buttons, and controls.
+- Avoid pill shapes except when a third-party embedded control requires them.
+- Shadow is rare, crisp, and shallow. Prefer `0 18px 36px rgb(18 39 32 / 0.10)` only when elevation is useful.
+- Do not add generated bitmap plates, paper, felt, scrapbook, torn-edge, or handmade material cues in the active UI.
 
 ### Buttons and Links
 
-- Primary button: brand blue background, warm off-white text, pill radius.
-- Secondary button: transparent or off-white background, brand blue border/text.
+- Primary button: accent-strong background, warm off-white text, `6px` radius.
+- Secondary button: transparent or off-white background, accent-strong border/text, `6px` radius.
 - Button labels must fit on one line.
 - Use one contact CTA intent per surface. Existing CMS labels can render, but surrounding UI should not add competing CTAs.
 
@@ -136,10 +138,12 @@ Suggested scale:
 ### Services
 
 - Render existing service items as a quiet service list or two-column list, not equal decorative cards.
+- Service surfaces should be quiet, hard-edged panels without decorative background assets.
 - Preserve all CMS text.
 - Long descriptions should be readable through native disclosure or an expanded detail region.
 - Use icons sparingly and with one color family.
 - Keep each service CTA if present, but style it as a low-pressure text link or quiet button.
+- Service detail content must open in a true modal overlay, not a full-page replacement view.
 
 ### FAQ
 
@@ -151,7 +155,7 @@ Suggested scale:
 ### AboutSection
 
 - Preserve existing CMS content and images.
-- Use calm image treatment: rounded image, no decorative circles, no heavy gradient overlay.
+- Use a simple clipped image treatment with no border, padding frame, tilted photo, decorative circle, or heavy gradient overlay.
 - Variation behavior may keep image left/right, but mobile should stack image below text.
 - Long credentials should wrap naturally without tiny text or badges.
 

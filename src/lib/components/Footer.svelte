@@ -61,14 +61,14 @@
 								{#if isFilled.link(link?.link)}
 									<PrismicLink
 										field={link?.link}
-										class="focus-ring inline-flex rounded-lg py-1 text-neutral-700 transition-colors hover:text-primary-900"
+										class="focus-ring inline-flex rounded-md py-1 text-neutral-700 transition-colors hover:text-primary-900"
 									>
 										{link?.label || copy.footer.untitled}
 									</PrismicLink>
 								{:else}
 									<a
 										href={fallbackQuickLinks[index] || localizedPath('/', locale)}
-										class="focus-ring inline-flex rounded-lg py-1 text-neutral-700 transition-colors hover:text-primary-900"
+										class="focus-ring inline-flex rounded-md py-1 text-neutral-700 transition-colors hover:text-primary-900"
 									>
 										{link?.label || copy.footer.untitled}
 									</a>
@@ -87,7 +87,7 @@
 							<Phone class="mt-0.5 h-4 w-4 shrink-0 text-primary-700" aria-hidden="true" />
 							<a
 								href={`tel:${settings.phone}`}
-								class="focus-ring rounded-lg hover:text-primary-900"
+								class="focus-ring rounded-md hover:text-primary-900"
 							>
 								{settings.phone}
 							</a>
@@ -99,7 +99,7 @@
 							<Mail class="mt-0.5 h-4 w-4 shrink-0 text-primary-700" aria-hidden="true" />
 							<a
 								href={`mailto:${settings.email}`}
-								class="focus-ring rounded-lg break-words hover:text-primary-900"
+								class="focus-ring rounded-md break-words hover:text-primary-900"
 							>
 								{settings.email}
 							</a>
@@ -136,7 +136,7 @@
 
 			<nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Legal">
 				{#each legalLinks as link}
-					<a href={link.href} class="focus-ring rounded-lg hover:text-primary-900">
+					<a href={link.href} class="focus-ring rounded-md hover:text-primary-900">
 						{link.label}
 					</a>
 				{/each}

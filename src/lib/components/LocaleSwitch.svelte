@@ -17,11 +17,11 @@
 	const koreanHref = $derived(`${localizedPath(page.url.pathname, 'kr')}${urlSuffix}`);
 
 	const linkClass =
-		'focus-ring inline-flex h-9 min-w-10 items-center justify-center rounded-full px-3 text-xs font-semibold transition-colors';
+		'focus-ring inline-flex h-9 min-w-10 items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors';
 </script>
 
 <nav
-	class="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-[#fbfcf8] p-1 shadow-soft"
+	class="inline-flex items-center gap-1 rounded-md border border-neutral-200 bg-[#fbfcf8] p-1 shadow-soft"
 	aria-label={copy.language.switcherLabel}
 >
 	<a
@@ -30,7 +30,7 @@
 		lang="en"
 		class={`${linkClass} ${
 			activeLocale === 'en'
-				? 'bg-primary-700 text-white'
+				? 'bg-primary-800 text-white'
 				: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
 		}`}
 		aria-current={activeLocale === 'en' ? 'true' : undefined}
@@ -46,7 +46,7 @@
 		lang="ko"
 		class={`${linkClass} ${
 			activeLocale === 'kr'
-				? 'bg-primary-700 text-white'
+				? 'bg-primary-800 text-white'
 				: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
 		}`}
 		aria-current={activeLocale === 'kr' ? 'true' : undefined}

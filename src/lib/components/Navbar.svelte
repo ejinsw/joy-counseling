@@ -43,7 +43,7 @@
 	}
 </script>
 
-<header class="sticky top-0 z-40 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
+<header class="sticky top-0 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
 	<div class="section-container">
 		<div class="flex h-[72px] items-center justify-between gap-6">
 			<a href={homeHref} class="focus-ring flex items-center gap-3" onclick={closeMobileMenu}>
@@ -63,7 +63,7 @@
 					{@const isActive = isActiveLink(link.href)}
 					<a
 						href={link.href}
-						class={`focus-ring rounded-full px-2 py-1 text-sm font-medium transition-colors ${
+						class={`focus-ring rounded-md px-2 py-1 text-sm font-medium transition-colors ${
 							isActive ? 'text-primary-800' : 'text-neutral-700 hover:text-primary-800'
 						}`}
 						aria-current={isActive ? 'page' : undefined}
@@ -80,7 +80,7 @@
 				</div>
 
 				<button
-					class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-secondary-50 text-neutral-800 lg:hidden"
+					class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 bg-secondary-50 text-neutral-800 lg:hidden"
 					aria-label={copy.nav.toggleNavigation}
 					aria-expanded={isOpen}
 					onclick={toggleMobileMenu}
@@ -101,7 +101,7 @@
 						{@const isActive = isActiveLink(link.href)}
 						<a
 							href={link.href}
-							class={`focus-ring rounded-2xl px-4 py-3 text-base font-medium transition-colors ${
+							class={`focus-ring rounded-md px-4 py-3 text-base font-medium transition-colors ${
 								isActive
 									? 'bg-primary-50 text-primary-900'
 									: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'

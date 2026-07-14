@@ -75,7 +75,7 @@
 
 		{#if isFilled.keyText(primary.contact_section_title) || isFilled.keyText(primary.contact_section_description)}
 			<div
-				class="mx-auto mt-12 max-w-4xl rounded-2xl border border-neutral-200 bg-secondary-50 p-6 md:p-8"
+				class="edge-surface mx-auto mt-12 max-w-4xl rounded-md border border-neutral-200 p-6 md:p-8"
 			>
 				{#if isFilled.keyText(primary.contact_section_title)}
 					<h3 class="text-2xl font-semibold text-neutral-900">

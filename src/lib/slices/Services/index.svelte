@@ -64,10 +64,12 @@
 					{@const descriptionText = isFilled.richText(service.description)
 						? asText(service.description)
 						: ''}
-					<article class="rounded-2xl border border-neutral-200 bg-[#fbfcf8] p-6 md:p-7">
+					<article
+						class={`edge-surface relative rounded-md border border-neutral-200 p-6 md:p-7 ${activeService === index ? 'z-[120]' : 'z-0'}`}
+					>
 						<div class="flex items-start gap-4">
 							<div
-								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary-800"
+								class="edge-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-primary-950"
 							>
 								<Icon class="h-5 w-5" aria-hidden="true" />
 							</div>
@@ -89,7 +91,7 @@
 									{#if isFilled.richText(service.description)}
 										<button
 											type="button"
-											class="focus-ring inline-flex rounded-full border border-primary-700/35 px-4 py-2 text-sm font-semibold text-primary-800 transition-colors hover:bg-primary-50"
+											class="focus-ring inline-flex rounded-md border border-primary-800/35 px-4 py-2 text-sm font-semibold text-primary-900 transition-colors hover:bg-primary-50"
 											onclick={() => (activeService = index)}
 										>
 											{copy.common.details}
@@ -99,7 +101,7 @@
 									{#if isFilled.link(service.cta_link) && isFilled.keyText(service.cta_text)}
 										<PrismicLink
 											field={service.cta_link}
-											class="focus-ring inline-flex rounded-lg text-sm font-semibold text-primary-800 underline decoration-primary-700/25 underline-offset-4 transition-colors hover:text-primary-950"
+											class="focus-ring inline-flex rounded-md text-sm font-semibold text-primary-900 underline decoration-primary-700/25 underline-offset-4 transition-colors hover:text-primary-950"
 										>
 											{service.cta_text}
 										</PrismicLink>

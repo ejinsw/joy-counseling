@@ -44,7 +44,7 @@
 
 					<button
 						type="button"
-						class="focus-ring mt-6 inline-flex rounded-full border border-primary-700/35 px-4 py-2 text-sm font-semibold text-primary-800 transition-colors hover:bg-primary-50"
+						class="focus-ring mt-6 inline-flex rounded-md border border-primary-800/35 px-4 py-2 text-sm font-semibold text-primary-900 transition-colors hover:bg-primary-50"
 						onclick={() => (isModalOpen = true)}
 					>
 						{copy.common.readMore}
@@ -79,8 +79,8 @@
 
 			{#if isFilled.image(primary.image)}
 				<div class={`order-2 ${imageFirstDesktop ? 'lg:order-1' : 'lg:order-2'}`}>
-					<div class="overflow-hidden rounded-2xl border border-neutral-200 bg-[#fbfcf8]">
-						<PrismicImage field={primary.image} class="h-full w-full object-cover" />
+					<div class="overflow-hidden rounded-md">
+						<PrismicImage field={primary.image} class="block h-full w-full object-cover" />
 					</div>
 				</div>
 			{/if}

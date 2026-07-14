@@ -59,7 +59,7 @@
 					{#if isFilled.link(primary.secondary_button_link) && isFilled.keyText(primary.secondary_button_text)}
 						<PrismicLink
 							field={primary.secondary_button_link}
-							class="focus-ring inline-flex items-center justify-center rounded-full border border-secondary-50/55 bg-secondary-50/10 px-6 py-3 text-sm font-semibold text-secondary-50 transition-colors hover:bg-secondary-50/18"
+							class="focus-ring inline-flex items-center justify-center rounded-md border border-secondary-50/55 bg-secondary-50/10 px-6 py-3 text-sm font-semibold text-secondary-50 transition-colors hover:bg-secondary-50/18"
 						>
 							{primary.secondary_button_text}
 						</PrismicLink>
