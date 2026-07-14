@@ -43,7 +43,7 @@
 	}
 </script>
 
-<header class="sticky top-0 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
+<header class="sticky top-0 z-50 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
 	<div class="section-container">
 		<div class="flex h-[72px] items-center justify-between gap-6">
 			<a href={homeHref} class="focus-ring flex items-center gap-3" onclick={closeMobileMenu}>
