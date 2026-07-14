@@ -39,37 +39,37 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		// Prepare email content
 		const emailHtml = `
-			<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-				<h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+			<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #20251d;">
+				<h2 style="color: #20251d; border-bottom: 2px solid #3c7864; padding-bottom: 10px;">
 					New Contact Form Submission
 				</h2>
 				
-				<div style="background-color: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 5px;">
-					<h3 style="color: #007bff; margin-top: 0;">Contact Information</h3>
+				<div style="background-color: #f5f7ef; padding: 20px; margin: 20px 0; border-radius: 5px;">
+					<h3 style="color: #3c7864; margin-top: 0;">Contact Information</h3>
 					<p><strong>Name:</strong> ${formData.first_name} ${formData.last_name}</p>
 					<p><strong>Email:</strong> <a href="mailto:${formData.email}">${formData.email}</a></p>
 					<p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
 					<p><strong>Service Interest:</strong> ${formData.service}</p>
 				</div>
 
-				<div style="background-color: #e8f5e8; padding: 20px; margin: 20px 0; border-radius: 5px;">
-					<h3 style="color: #28a745; margin-top: 0;">Insurance Information</h3>
+				<div style="background-color: #eaf4ee; padding: 20px; margin: 20px 0; border-radius: 5px;">
+					<h3 style="color: #326253; margin-top: 0;">Insurance Information</h3>
 					<p><strong>Has Insurance:</strong> ${formData.has_insurance}</p>
 					<p><strong>Insurance Provider:</strong> ${formData.insurance_provider || 'Not provided'}</p>
 				</div>
 
-				<div style="background-color: #fff3cd; padding: 20px; margin: 20px 0; border-radius: 5px;">
-					<h3 style="color: #856404; margin-top: 0;">Message</h3>
+				<div style="background-color: #dcefe6; padding: 20px; margin: 20px 0; border-radius: 5px;">
+					<h3 style="color: #2b4f45; margin-top: 0;">Message</h3>
 					<p style="white-space: pre-wrap;">${formData.message || 'No message provided'}</p>
 				</div>
 
-				<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
-					<p style="color: #666; font-size: 12px;">
+				<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dfe8d5; text-align: center;">
+					<p style="color: #59634f; font-size: 12px;">
 						This message was sent from your counseling practice contact form.
 					</p>
 					<p style="margin-top: 10px;">
 						<a href="mailto:${formData.email}?subject=Re: Your Counseling Inquiry" 
-						   style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+						   style="background-color: #326253; color: #f5f7ef; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
 							Reply to Client
 						</a>
 					</p>

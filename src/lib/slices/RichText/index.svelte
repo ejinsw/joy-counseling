@@ -10,7 +10,7 @@
 </script>
 
 <Section>
-	<div class="max-w-3xl mx-auto prose prose-lg text-surface-700-300-token">
+	<div class="prose mx-auto max-w-3xl text-neutral-700">
 		<PrismicRichText
 			field={slice.primary.content}
 			components={{

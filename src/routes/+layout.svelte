@@ -24,7 +24,7 @@
 </svelte:head>
 
 {#if !$page.url.pathname.startsWith('/slice-simulator')}
-<Navbar settings={data?.settings?.data} />
+	<Navbar settings={data?.settings?.data} locale={data?.locale} />
 {/if}
 
 <main class="min-h-screen">
@@ -32,7 +32,11 @@
 </main>
 
 {#if !$page.url.pathname.startsWith('/slice-simulator')}
-<Footer settings={data?.settings?.data} footerSettings={data?.footerSettings?.data} />
+	<Footer
+		settings={data?.settings?.data}
+		footerSettings={data?.footerSettings?.data}
+		locale={data?.locale}
+	/>
 
-<PrismicPreview {repositoryName} />
+	<PrismicPreview {repositoryName} />
 {/if}

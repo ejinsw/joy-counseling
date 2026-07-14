@@ -1,15 +1,27 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { Menu, X } from '@lucide/svelte';
+	import { localizedPath, uiText, type Locale } from '$lib/i18n';
 	import type { SettingsDocumentData } from '../../prismicio-types';
+	import LocaleSwitch from './LocaleSwitch.svelte';
 	import Logo from './Logo.svelte';
-	let { settings } = $props<{ settings?: SettingsDocumentData }>();
+
+	let {
+		settings,
+		locale = 'en'
+	}: {
+		settings?: SettingsDocumentData;
+		locale?: Locale;
+	} = $props();
 	let isOpen = $state(false);
 
-	const navLinks = [
-		{ href: '/', label: 'Home' },
-		{ href: '/about', label: 'About Us' },
-		{ href: '/contact', label: 'Contact' }
-	];
+	const copy = $derived(uiText[locale]);
+	const homeHref = $derived(localizedPath('/', locale));
+	const navLinks = $derived([
+		{ href: localizedPath('/', locale), label: copy.nav.home },
+		{ href: localizedPath('/about', locale), label: copy.nav.about },
+		{ href: localizedPath('/contact', locale), label: copy.nav.contact }
+	]);
 
 	function toggleMobileMenu() {
 		isOpen = !isOpen;
@@ -18,130 +30,93 @@
 	function closeMobileMenu() {
 		isOpen = false;
 	}
+
+	function isActiveLink(href: string) {
+		const currentPath = page.url.pathname.replace(/\/$/, '') || '/';
+		const linkPath = href.replace(/\/$/, '') || '/';
+
+		if (linkPath === '/' || linkPath === '/kr') {
+			return currentPath === linkPath;
+		}
+
+		return currentPath === linkPath || currentPath.startsWith(`${linkPath}/`);
+	}
 </script>
 
-<header
-	class="bg-white/95 backdrop-blur-md border-b border-neutral-200/60 sticky top-0 z-50 shadow-sm"
->
+<header class="sticky top-0 z-40 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
 	<div class="section-container">
-		<div class="flex items-center justify-between py-4 lg:py-6">
-			<!-- Logo/Brand -->
-			<a
-				href="/"
-				class="flex items-center gap-3 group focus-ring rounded-lg"
-				onclick={closeMobileMenu}
-			>
-				<Logo class="w-10 h-10" image={settings?.logo} />
-				<div class="hidden sm:block">
-					<h1 class="text-xl font-serif font-semibold text-neutral-900 leading-none">
+		<div class="flex h-[72px] items-center justify-between gap-6">
+			<a href={homeHref} class="focus-ring flex items-center gap-3" onclick={closeMobileMenu}>
+				<Logo class="h-11 w-11 shrink-0" image={settings?.logo} />
+				<div class="hidden min-w-0 sm:block">
+					<p class="truncate text-base font-semibold leading-tight text-neutral-900">
 						{settings?.company_name}
-					</h1>
-					<p class="text-sm text-neutral-600 font-light leading-none">{settings?.tagline}</p>
+					</p>
+					{#if settings?.tagline}
+						<p class="truncate text-sm leading-tight text-neutral-600">{settings.tagline}</p>
+					{/if}
 				</div>
 			</a>
 
-			<!-- Desktop Navigation -->
-			<nav class="hidden lg:flex items-center gap-8">
+			<nav class="hidden items-center gap-7 lg:flex" aria-label={copy.nav.mainNavigation}>
 				{#each navLinks as link}
+					{@const isActive = isActiveLink(link.href)}
 					<a
 						href={link.href}
-						class="relative text-neutral-700 hover:text-primary-600 font-medium transition-all duration-200 py-2 focus-ring rounded group
-              {page.url.pathname === link.href ? 'text-primary-600' : ''}"
+						class={`focus-ring rounded-full px-2 py-1 text-sm font-medium transition-colors ${
+							isActive ? 'text-primary-800' : 'text-neutral-700 hover:text-primary-800'
+						}`}
+						aria-current={isActive ? 'page' : undefined}
 						onclick={closeMobileMenu}
 					>
 						{link.label}
-						{#if page.url.pathname === link.href}
-							<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600 rounded-full"></div>
-						{:else}
-							<div
-								class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200"
-							></div>
-						{/if}
 					</a>
 				{/each}
 			</nav>
 
-			<!-- CTA Button & Mobile Menu Toggle -->
-			<div class="flex items-center gap-4">
-				<a
-					href="/contact"
-					class="hidden sm:inline-flex btn-primary focus-ring text-sm font-medium"
-					onclick={closeMobileMenu}
-				>
-					<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-						/>
-					</svg>
-					Schedule Session
-				</a>
+			<div class="flex items-center gap-3">
+				<div class="hidden sm:block">
+					<LocaleSwitch {locale} onNavigate={closeMobileMenu} />
+				</div>
 
-				<!-- Mobile Menu Button -->
 				<button
-					class="lg:hidden p-2 rounded-lg text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 focus-ring"
-					aria-label="Toggle navigation menu"
+					class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-secondary-50 text-neutral-800 lg:hidden"
+					aria-label={copy.nav.toggleNavigation}
 					aria-expanded={isOpen}
 					onclick={toggleMobileMenu}
 				>
 					{#if isOpen}
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						</svg>
+						<X class="h-5 w-5" aria-hidden="true" />
 					{:else}
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
-						</svg>
+						<Menu class="h-5 w-5" aria-hidden="true" />
 					{/if}
 				</button>
 			</div>
 		</div>
 
-		<!-- Mobile Navigation -->
 		{#if isOpen}
-			<div class="lg:hidden border-t border-neutral-200 bg-white">
-				<nav class="py-6 space-y-1">
+			<nav class="border-t border-neutral-200 py-4 lg:hidden" aria-label={copy.nav.mainNavigation}>
+				<div class="grid gap-2">
 					{#each navLinks as link}
+						{@const isActive = isActiveLink(link.href)}
 						<a
 							href={link.href}
-							class="block px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all duration-200 focus-ring
-                {page.url.pathname === link.href ? 'text-primary-600 bg-primary-50' : ''}"
+							class={`focus-ring rounded-2xl px-4 py-3 text-base font-medium transition-colors ${
+								isActive
+									? 'bg-primary-50 text-primary-900'
+									: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
+							}`}
+							aria-current={isActive ? 'page' : undefined}
 							onclick={closeMobileMenu}
 						>
 							{link.label}
 						</a>
 					{/each}
-					<div class="px-4 pt-4">
-						<a
-							href="/contact"
-							class="btn-primary w-full justify-center focus-ring"
-							onclick={closeMobileMenu}
-						>
-							<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-								/>
-							</svg>
-							Schedule Session
-						</a>
+					<div class="mt-2">
+						<LocaleSwitch {locale} onNavigate={closeMobileMenu} />
 					</div>
-				</nav>
-			</div>
+				</div>
+			</nav>
 		{/if}
 	</div>
 </header>
