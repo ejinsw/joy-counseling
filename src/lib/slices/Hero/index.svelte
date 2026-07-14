@@ -21,9 +21,8 @@
 		<div class="absolute inset-0 bg-primary-900"></div>
 	{/if}
 
-	<div class="absolute inset-0 bg-[#122720]/58"></div>
 	<div
-		class="absolute inset-0 bg-gradient-to-r from-[#122720]/80 via-[#122720]/42 to-[#122720]/22"
+		class="absolute inset-0 bg-gradient-to-r from-[#122720]/72 via-[#122720]/28 via-55% to-transparent"
 	></div>
 
 	<div
