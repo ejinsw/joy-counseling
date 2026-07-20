@@ -28,6 +28,14 @@
         }
       },
       "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Service Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -61,24 +69,6 @@
               "christ",
               "animal"
             ]
-          }
-        },
-        "cta_text": {
-          "type": "Text",
-          "config": {
-            "label": "Call to Action Text",
-            "placeholder": "Book Session"
-          }
-        },
-        "cta_link": {
-          "type": "Link",
-          "config": {
-            "label": "Call to Action Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": false,
-            "allowText": false,
-            "repeat": false
           }
         }
       }

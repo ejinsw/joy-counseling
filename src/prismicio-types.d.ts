@@ -548,6 +548,16 @@ export interface ContactFormSliceDefaultPrimaryServicesItem {
  */
 export interface ContactFormSliceDefaultPrimary {
 	/**
+	 * Picture field in *ContactForm → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.default.primary.picture
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	picture: prismic.ImageField<never>;
+
+	/**
 	 * Title field in *ContactForm → Default → Primary*
 	 *
 	 * - **Field Type**: Text
@@ -680,6 +690,16 @@ export interface FaqSliceDefaultPrimary {
 	contact_section_description: prismic.KeyTextField;
 
 	/**
+	 * CTA Image field in *FAQ → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq.default.primary.cta_image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	cta_image: prismic.ImageField<never>;
+
+	/**
 	 * Contact Button 1 Text field in *FAQ → Default → Primary*
 	 *
 	 * - **Field Type**: Text
@@ -698,26 +718,6 @@ export interface FaqSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	contact_button_1_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-	/**
-	 * Contact Button 2 Text field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Call for a Consultation
-	 * - **API ID Path**: faq.default.primary.contact_button_2_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	contact_button_2_text: prismic.KeyTextField;
-
-	/**
-	 * Contact Button 2 Link field in *FAQ → Default → Primary*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: faq.default.primary.contact_button_2_link
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	contact_button_2_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -1216,6 +1216,16 @@ export interface ServicesSliceDefaultPrimary {
  */
 export interface ServicesSliceDefaultItem {
 	/**
+	 * Service Image field in *Services → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.items[].image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+
+	/**
 	 * Service Title field in *Services → Items*
 	 *
 	 * - **Field Type**: Text
@@ -1255,26 +1265,6 @@ export interface ServicesSliceDefaultItem {
 		| 'christ'
 		| 'animal'
 	>;
-
-	/**
-	 * Call to Action Text field in *Services → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Book Session
-	 * - **API ID Path**: services.items[].cta_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	cta_text: prismic.KeyTextField;
-
-	/**
-	 * Call to Action Link field in *Services → Items*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: services.items[].cta_link
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	cta_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**

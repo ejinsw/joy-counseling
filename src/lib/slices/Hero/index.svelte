@@ -22,7 +22,7 @@
 	{/if}
 
 	<div
-		class="absolute inset-0 bg-gradient-to-r from-[#122720]/72 via-[#122720]/28 via-55% to-transparent"
+		class="absolute inset-0 bg-gradient-to-r from-[#122720]/78 via-[#2b4f45]/42 via-55% to-[#fff2dc]/12"
 	></div>
 
 	<div

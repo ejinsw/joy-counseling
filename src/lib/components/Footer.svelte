@@ -31,7 +31,7 @@
 	]);
 </script>
 
-<footer class="border-t border-neutral-200 bg-secondary-100/70">
+<footer class="border-t border-neutral-200 bg-white">
 	<div class="section-container">
 		<div class="grid gap-10 py-12 md:grid-cols-[1.4fr_0.8fr_1fr] lg:gap-14">
 			<div>

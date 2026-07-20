@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { Menu, X } from '@lucide/svelte';
+	import { CalendarCheck, Menu, X } from '@lucide/svelte';
+	import { headwaySchedulingUrl } from '$lib/config/scheduling';
 	import { localizedPath, uiText, type Locale } from '$lib/i18n';
 	import type { SettingsDocumentData } from '../../prismicio-types';
 	import LocaleSwitch from './LocaleSwitch.svelte';
@@ -43,10 +44,16 @@
 	}
 </script>
 
-<header class="sticky top-0 z-50 border-b border-neutral-200 bg-[#fbfcf8]/95 backdrop-blur-sm">
+<header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
 	<div class="section-container">
-		<div class="flex h-[72px] items-center justify-between gap-6">
-			<a href={homeHref} class="focus-ring flex items-center gap-3" onclick={closeMobileMenu}>
+		<div
+			class="flex h-[72px] items-center justify-between gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr]"
+		>
+			<a
+				href={homeHref}
+				class="focus-ring flex items-center gap-3 lg:justify-self-start"
+				onclick={closeMobileMenu}
+			>
 				<Logo class="h-11 w-11 shrink-0" image={settings?.logo} />
 				<div class="hidden min-w-0 sm:block">
 					<p class="truncate text-base font-semibold leading-tight text-neutral-900">
@@ -58,7 +65,10 @@
 				</div>
 			</a>
 
-			<nav class="hidden items-center gap-7 lg:flex" aria-label={copy.nav.mainNavigation}>
+			<nav
+				class="hidden items-center gap-7 lg:flex lg:justify-self-center"
+				aria-label={copy.nav.mainNavigation}
+			>
 				{#each navLinks as link}
 					{@const isActive = isActiveLink(link.href)}
 					<a
@@ -72,15 +82,22 @@
 						{link.label}
 					</a>
 				{/each}
+				<LocaleSwitch {locale} onNavigate={closeMobileMenu} />
 			</nav>
 
-			<div class="flex items-center gap-3">
-				<div class="hidden sm:block">
-					<LocaleSwitch {locale} onNavigate={closeMobileMenu} />
-				</div>
+			<div class="ml-auto flex items-center gap-2 sm:gap-3 lg:ml-0 lg:justify-self-end">
+				<a
+					href={headwaySchedulingUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-primary focus-ring hidden h-11 px-4 py-0 lg:inline-flex"
+				>
+					<CalendarCheck class="h-4 w-4" aria-hidden="true" />
+					{copy.nav.schedule}
+				</a>
 
 				<button
-					class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 bg-secondary-50 text-neutral-800 lg:hidden"
+					class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 bg-white text-neutral-800 lg:hidden"
 					aria-label={copy.nav.toggleNavigation}
 					aria-expanded={isOpen}
 					onclick={toggleMobileMenu}
@@ -103,8 +120,8 @@
 							href={link.href}
 							class={`focus-ring rounded-md px-4 py-3 text-base font-medium transition-colors ${
 								isActive
-									? 'bg-primary-50 text-primary-900'
-									: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
+									? 'bg-neutral-100 text-primary-900'
+									: 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-900'
 							}`}
 							aria-current={isActive ? 'page' : undefined}
 							onclick={closeMobileMenu}
@@ -112,9 +129,19 @@
 							{link.label}
 						</a>
 					{/each}
-					<div class="mt-2">
+					<div class="px-4 py-2">
 						<LocaleSwitch {locale} onNavigate={closeMobileMenu} />
 					</div>
+					<a
+						href={headwaySchedulingUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-primary focus-ring mt-2 w-full"
+						onclick={closeMobileMenu}
+					>
+						<CalendarCheck class="h-4 w-4" aria-hidden="true" />
+						{copy.nav.schedule}
+					</a>
 				</div>
 			</nav>
 		{/if}

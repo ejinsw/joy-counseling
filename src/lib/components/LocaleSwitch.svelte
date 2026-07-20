@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import KoreaFlag from '~icons/flag/kr-4x3';
+	import UnitedStatesFlag from '~icons/flag/us-4x3';
 	import { localeFromPath, localizedPath, uiText, type Locale } from '$lib/i18n';
 
 	let {
@@ -15,44 +17,28 @@
 	const urlSuffix = $derived(`${page.url.search}${page.url.hash}`);
 	const englishHref = $derived(`${localizedPath(page.url.pathname, 'en')}${urlSuffix}`);
 	const koreanHref = $derived(`${localizedPath(page.url.pathname, 'kr')}${urlSuffix}`);
+	const targetLocale = $derived(activeLocale === 'en' ? 'kr' : 'en');
+	const targetHref = $derived(targetLocale === 'en' ? englishHref : koreanHref);
+	const targetLabel = $derived(
+		targetLocale === 'en' ? copy.language.english : copy.language.korean
+	);
+	const TargetFlag = $derived(targetLocale === 'en' ? UnitedStatesFlag : KoreaFlag);
 
 	const linkClass =
-		'focus-ring inline-flex h-9 min-w-10 items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors';
+		'focus-ring inline-flex h-11 w-11 items-center justify-center rounded-md p-1.5 transition-colors hover:bg-secondary-100 active:bg-primary-50';
 </script>
 
-<nav
-	class="inline-flex items-center gap-1 rounded-md border border-neutral-200 bg-[#fbfcf8] p-1 shadow-soft"
-	aria-label={copy.language.switcherLabel}
->
+<nav class="inline-flex items-center" aria-label={copy.language.switcherLabel}>
 	<a
-		href={englishHref}
-		hreflang="en"
-		lang="en"
-		class={`${linkClass} ${
-			activeLocale === 'en'
-				? 'bg-primary-800 text-white'
-				: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
-		}`}
-		aria-current={activeLocale === 'en' ? 'true' : undefined}
-		aria-label={copy.language.english}
+		href={targetHref}
+		hreflang={targetLocale === 'en' ? 'en' : 'ko'}
+		lang={targetLocale === 'en' ? 'en' : 'ko'}
+		class={linkClass}
+		aria-label={targetLabel}
+		title={targetLabel}
 		onclick={onNavigate}
 	>
-		EN
-	</a>
-
-	<a
-		href={koreanHref}
-		hreflang="ko"
-		lang="ko"
-		class={`${linkClass} ${
-			activeLocale === 'kr'
-				? 'bg-primary-800 text-white'
-				: 'text-neutral-700 hover:bg-secondary-100 hover:text-primary-900'
-		}`}
-		aria-current={activeLocale === 'kr' ? 'true' : undefined}
-		aria-label={copy.language.korean}
-		onclick={onNavigate}
-	>
-		KR
+		<TargetFlag class="h-[21px] w-7" aria-hidden="true" />
+		<span class="sr-only">{targetLabel}</span>
 	</a>
 </nav>

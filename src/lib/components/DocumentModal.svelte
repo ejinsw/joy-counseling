@@ -8,12 +8,14 @@
 		title = '',
 		subtitle = '',
 		onClose = () => {},
+		media,
 		children
 	} = $props<{
 		open?: boolean;
 		title?: string | null;
 		subtitle?: string | null;
 		onClose?: () => void;
+		media?: any;
 		children?: any;
 	}>();
 
@@ -70,7 +72,13 @@
 				</div>
 			</header>
 
-			<article class="overflow-y-auto px-5 py-8 sm:px-6 md:py-10">
+			<article class="overflow-y-auto px-5 py-8 text-left sm:px-6 md:py-10">
+				{#if media}
+					<div class="mb-7 overflow-hidden rounded-md bg-neutral-100">
+						{@render media()}
+					</div>
+				{/if}
+
 				{#if title}
 					<h2
 						id="document-modal-title"
@@ -84,7 +92,7 @@
 					<p class="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">{subtitle}</p>
 				{/if}
 
-				<div class="prose mt-7 max-w-2xl text-neutral-700">
+				<div class="prose mt-7 max-w-2xl text-left text-neutral-700">
 					{@render children?.()}
 				</div>
 			</article>

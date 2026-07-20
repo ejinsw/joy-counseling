@@ -1,22 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { asText, isFilled } from '@prismicio/client';
-	import { PrismicLink, PrismicRichText } from '@prismicio/svelte';
-	import {
-		Brain,
-		Circle,
-		Cross,
-		HandHeart,
-		Handshake,
-		Heart,
-		Leaf,
-		MessageCircle,
-		Sprout,
-		Users
-	} from '@lucide/svelte';
+	import { PrismicImage, PrismicRichText } from '@prismicio/svelte';
 	import DocumentModal from '$lib/components/DocumentModal.svelte';
 	import { localeFromPath, uiText } from '$lib/i18n';
-	import type { ServicesSlice } from '../../../prismicio-types';
+	import type { ServicesSlice, ServicesSliceDefaultItem } from '../../../prismicio-types';
 
 	let { slice }: { slice: ServicesSlice } = $props();
 	let { primary, items } = slice;
@@ -25,27 +13,24 @@
 	const locale = $derived(localeFromPath(page.url.pathname));
 	const copy = $derived(uiText[locale]);
 
-	function getServiceIcon(iconType: string | null | undefined) {
-		const iconMap: Record<string, any> = {
-			heart: Heart,
-			brain: Brain,
-			conversation: MessageCircle,
-			growth: Sprout,
-			family: Users,
-			couple: Handshake,
-			mindfulness: Leaf,
-			wellness: HandHeart,
-			christ: Cross,
-			animal: HandHeart
-		};
+	function getServiceMedia(service: ServicesSliceDefaultItem) {
+		return service.image;
+	}
 
-		return iconMap[iconType || ''] || Circle;
+	function getCardClass(index: number) {
+		return index % 2 === 0 ? 'bg-[#5f8796] text-white' : 'bg-[#252a3a] text-white';
+	}
+
+	function getButtonClass(index: number) {
+		return index % 2 === 0
+			? 'focus-ring inline-flex w-full items-center justify-center rounded-md bg-[#252a3a] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#1d2230]'
+			: 'focus-ring inline-flex w-full items-center justify-center rounded-md bg-[#dfe9ee] px-6 py-3 text-base font-semibold text-[#252a3a] transition-colors hover:bg-white';
 	}
 </script>
 
-<section class="section-padding bg-secondary-50">
+<section class="section-padding border-t border-neutral-200 bg-[#f4efe6]">
 	<div class="section-container">
-		<div class="mb-12 max-w-3xl">
+		<div class="mx-auto mb-12 max-w-3xl text-center">
 			{#if isFilled.keyText(primary.title)}
 				<h2 class="text-display-lg">{primary.title}</h2>
 			{/if}
@@ -58,74 +43,68 @@
 		</div>
 
 		{#if services.length > 0}
-			<div class="grid gap-4 lg:grid-cols-2">
+			<div class="grid gap-6 lg:grid-cols-2">
 				{#each services as service, index}
-					{@const Icon = getServiceIcon(service.icon)}
 					{@const descriptionText = isFilled.richText(service.description)
 						? asText(service.description)
 						: ''}
+					{@const serviceMedia = getServiceMedia(service)}
 					<article
-						class={`edge-surface relative rounded-md border border-neutral-200 p-6 md:p-7 ${activeService === index ? 'z-[120]' : 'z-0'}`}
+						class={`relative flex min-h-full flex-col overflow-hidden rounded-[18px] ${getCardClass(index)} ${activeService === index ? 'z-[120]' : 'z-0'}`}
 					>
-						<div class="flex items-start gap-4">
+						{#if isFilled.image(serviceMedia)}
+							<div class="h-52 bg-white/15 sm:h-60 md:h-72">
+								<PrismicImage field={serviceMedia} class="h-full w-full object-cover" />
+							</div>
+						{:else}
 							<div
-								class="edge-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-primary-950"
-							>
-								<Icon class="h-5 w-5" aria-hidden="true" />
-							</div>
+								class="flex h-52 items-center justify-center bg-white/15 sm:h-60 md:h-72"
+								aria-hidden="true"
+							></div>
+						{/if}
 
-							<div class="min-w-0 flex-1">
-								{#if isFilled.keyText(service.title)}
-									<h3 class="text-xl font-semibold leading-7 text-neutral-900">
-										{service.title}
-									</h3>
-								{/if}
+						<div class="flex flex-1 flex-col px-7 py-8 text-center md:px-10 md:py-10">
+							{#if isFilled.keyText(service.title)}
+								<h3
+									class="text-lg font-semibold uppercase leading-7 tracking-[0.24em] text-white md:text-xl"
+								>
+									{service.title}
+								</h3>
+							{/if}
 
-								{#if descriptionText}
-									<p class="truncate-block mt-3 text-sm leading-7 text-neutral-700">
-										{descriptionText}
-									</p>
-								{/if}
+							{#if descriptionText}
+								<p class="truncate-block mx-auto mt-6 max-w-md text-lg leading-8 text-white/95">
+									{descriptionText}
+								</p>
+							{/if}
 
-								<div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-									{#if isFilled.richText(service.description)}
-										<button
-											type="button"
-											class="focus-ring inline-flex rounded-md border border-primary-800/35 px-4 py-2 text-sm font-semibold text-primary-900 transition-colors hover:bg-primary-50"
-											onclick={() => (activeService = index)}
-										>
-											{copy.common.details}
-										</button>
-									{/if}
-
-									{#if isFilled.link(service.cta_link) && isFilled.keyText(service.cta_text)}
-										<PrismicLink
-											field={service.cta_link}
-											class="focus-ring inline-flex rounded-md text-sm font-semibold text-primary-900 underline decoration-primary-700/25 underline-offset-4 transition-colors hover:text-primary-950"
-										>
-											{service.cta_text}
-										</PrismicLink>
-									{/if}
-								</div>
-
+							<div class="mt-auto pt-8">
 								{#if isFilled.richText(service.description)}
-									<DocumentModal
-										open={activeService === index}
-										title={service.title}
-										onClose={() => (activeService = null)}
+									<button
+										type="button"
+										class={getButtonClass(index)}
+										onclick={() => (activeService = index)}
 									>
-										<PrismicRichText field={service.description} />
-
-										{#if isFilled.link(service.cta_link) && isFilled.keyText(service.cta_text)}
-											<div class="not-prose mt-8">
-												<PrismicLink field={service.cta_link} class="btn-primary focus-ring">
-													{service.cta_text}
-												</PrismicLink>
-											</div>
-										{/if}
-									</DocumentModal>
+										{copy.common.readMore}
+									</button>
 								{/if}
 							</div>
+
+							{#if isFilled.richText(service.description)}
+								<DocumentModal
+									open={activeService === index}
+									title={service.title}
+									onClose={() => (activeService = null)}
+								>
+									{#snippet media()}
+										{#if isFilled.image(serviceMedia)}
+											<PrismicImage field={serviceMedia} class="h-56 w-full object-cover sm:h-72" />
+										{/if}
+									{/snippet}
+
+									<PrismicRichText field={service.description} />
+								</DocumentModal>
+							{/if}
 						</div>
 					</article>
 				{/each}

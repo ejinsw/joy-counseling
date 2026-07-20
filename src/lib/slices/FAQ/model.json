@@ -1,123 +1,131 @@
 {
-  "id": "faq",
-  "type": "SharedSlice",
-  "name": "FAQ",
-  "description": "Frequently asked questions with expandable content and customizable styling",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title",
-            "placeholder": "Frequently Asked Questions"
-          }
-        },
-        "subtitle": {
-          "type": "Text",
-          "config": {
-            "label": "Subtitle",
-            "placeholder": "Common questions about our services"
-          }
-        },
-        "contact_section_title": {
-          "type": "Text",
-          "config": {
-            "label": "Contact Section Title",
-            "placeholder": "Need More Information?"
-          }
-        },
-        "contact_section_description": {
-          "type": "Text",
-          "config": {
-            "label": "Contact Section Description",
-            "placeholder": "Every therapeutic journey is unique. If you have specific questions about your situation or our approach, we're here to help you feel fully informed and comfortable."
-          }
-        },
-        "contact_button_1_text": {
-          "type": "Text",
-          "config": {
-            "label": "Contact Button 1 Text",
-            "placeholder": "Send Us a Message"
-          }
-        },
-        "contact_button_1_link": {
-          "type": "Link",
-          "config": {
-            "label": "Contact Button 1 Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": false,
-            "allowText": false,
-            "repeat": false
-          }
-        },
-        "contact_button_2_text": {
-          "type": "Text",
-          "config": {
-            "label": "Contact Button 2 Text",
-            "placeholder": "Call for a Consultation"
-          }
-        },
-        "contact_button_2_link": {
-          "type": "Link",
-          "config": {
-            "label": "Contact Button 2 Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": false,
-            "allowText": false,
-            "repeat": false
-          }
-        }
-      },
-      "items": {
-        "question": {
-          "type": "Text",
-          "config": {
-            "label": "Question",
-            "placeholder": "What can I expect in my first session?"
-          }
-        },
-        "answer": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Answer",
-            "placeholder": "Provide a detailed answer to the question",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
-          }
-        },
-        "category": {
-          "type": "Select",
-          "config": {
-            "label": "FAQ Category",
-            "options": [
-              "general",
-              "services",
-              "pricing",
-              "scheduling",
-              "what-to-expect",
-              "confidentiality"
-            ]
-          }
-        },
-        "featured": {
-          "type": "Boolean",
-          "config": {
-            "label": "Featured Question",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
-        }
-      }
-    }
-  ]
+	"id": "faq",
+	"type": "SharedSlice",
+	"name": "FAQ",
+	"description": "Frequently asked questions with expandable content and customizable styling",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": "",
+			"primary": {
+				"title": {
+					"type": "Text",
+					"config": {
+						"label": "Title",
+						"placeholder": "Frequently Asked Questions"
+					}
+				},
+				"subtitle": {
+					"type": "Text",
+					"config": {
+						"label": "Subtitle",
+						"placeholder": "Common questions about our services"
+					}
+				},
+				"contact_section_title": {
+					"type": "Text",
+					"config": {
+						"label": "Contact Section Title",
+						"placeholder": "Need More Information?"
+					}
+				},
+				"contact_section_description": {
+					"type": "Text",
+					"config": {
+						"label": "Contact Section Description",
+						"placeholder": "Every therapeutic journey is unique. If you have specific questions about your situation or our approach, we're here to help you feel fully informed and comfortable."
+					}
+				},
+				"cta_image": {
+					"type": "Image",
+					"config": {
+						"label": "CTA Image",
+						"constraint": {},
+						"thumbnails": []
+					}
+				},
+				"contact_button_1_text": {
+					"type": "Text",
+					"config": {
+						"label": "Contact Button 1 Text",
+						"placeholder": "Send Us a Message"
+					}
+				},
+				"contact_button_1_link": {
+					"type": "Link",
+					"config": {
+						"label": "Contact Button 1 Link",
+						"placeholder": "",
+						"select": null,
+						"allowTargetBlank": false,
+						"allowText": false,
+						"repeat": false
+					}
+				},
+				"contact_button_2_text": {
+					"type": "Text",
+					"config": {
+						"label": "Contact Button 2 Text",
+						"placeholder": "Call for a Consultation"
+					}
+				},
+				"contact_button_2_link": {
+					"type": "Link",
+					"config": {
+						"label": "Contact Button 2 Link",
+						"placeholder": "",
+						"select": null,
+						"allowTargetBlank": false,
+						"allowText": false,
+						"repeat": false
+					}
+				}
+			},
+			"items": {
+				"question": {
+					"type": "Text",
+					"config": {
+						"label": "Question",
+						"placeholder": "What can I expect in my first session?"
+					}
+				},
+				"answer": {
+					"type": "StructuredText",
+					"config": {
+						"label": "Answer",
+						"placeholder": "Provide a detailed answer to the question",
+						"allowTargetBlank": true,
+						"multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item"
+					}
+				},
+				"category": {
+					"type": "Select",
+					"config": {
+						"label": "FAQ Category",
+						"options": [
+							"general",
+							"services",
+							"pricing",
+							"scheduling",
+							"what-to-expect",
+							"confidentiality"
+						]
+					}
+				},
+				"featured": {
+					"type": "Boolean",
+					"config": {
+						"label": "Featured Question",
+						"placeholder_false": "false",
+						"placeholder_true": "true",
+						"default_value": false
+					}
+				}
+			}
+		}
+	]
 }

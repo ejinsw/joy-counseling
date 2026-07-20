@@ -1,33 +1,44 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { isFilled } from '@prismicio/client';
-	import { PrismicLink, PrismicRichText } from '@prismicio/svelte';
+	import { PrismicImage, PrismicLink, PrismicRichText } from '@prismicio/svelte';
 	import { ChevronDown } from '@lucide/svelte';
+	import { localeFromPath, uiText } from '$lib/i18n';
 	import type { FaqSlice } from '../../../prismicio-types';
 
-	export let slice: FaqSlice;
+	type FaqPrimaryWithSecondaryButton = FaqSlice['primary'] & {
+		contact_button_2_text?: FaqSlice['primary']['contact_button_1_text'];
+		contact_button_2_link?: FaqSlice['primary']['contact_button_1_link'];
+	};
 
-	let { primary, items } = slice;
-	let expandedItems: Set<number> = new Set();
-
-	$: sortedFaqs = (items || [])
-		.filter((item) => isFilled.keyText(item.question) && isFilled.richText(item.answer))
-		.sort((a, b) => {
-			if (a.featured && !b.featured) return -1;
-			if (!a.featured && b.featured) return 1;
-			return 0;
-		});
+	let { slice }: { slice: FaqSlice } = $props();
+	let { primary: basePrimary, items } = slice;
+	const primary = basePrimary as FaqPrimaryWithSecondaryButton;
+	let expandedItems = $state<Set<number>>(new Set());
+	const locale = $derived(localeFromPath(page.url.pathname));
+	const copy = $derived(uiText[locale]);
+	const sortedFaqs = $derived(
+		(items || [])
+			.filter((item) => isFilled.keyText(item.question) && isFilled.richText(item.answer))
+			.sort((a, b) => {
+				if (a.featured && !b.featured) return -1;
+				if (!a.featured && b.featured) return 1;
+				return 0;
+			})
+	);
 
 	function toggleExpanded(index: number) {
-		expandedItems = new Set(expandedItems);
-		if (expandedItems.has(index)) {
-			expandedItems.delete(index);
+		const nextItems = new Set(expandedItems);
+		if (nextItems.has(index)) {
+			nextItems.delete(index);
 		} else {
-			expandedItems.add(index);
+			nextItems.add(index);
 		}
+		expandedItems = nextItems;
 	}
 </script>
 
-<section class="section-padding border-t border-neutral-200 bg-[#fbfcf8]">
+<section class="section-padding border-t border-neutral-200 bg-white">
 	<div class="section-container">
 		<div class="mb-12 max-w-3xl">
 			{#if isFilled.keyText(primary.title)}
@@ -74,33 +85,92 @@
 		{/if}
 
 		{#if isFilled.keyText(primary.contact_section_title) || isFilled.keyText(primary.contact_section_description)}
-			<div
-				class="edge-surface mx-auto mt-12 max-w-4xl rounded-md border border-neutral-200 p-6 md:p-8"
-			>
-				{#if isFilled.keyText(primary.contact_section_title)}
-					<h3 class="text-2xl font-semibold text-neutral-900">
-						{primary.contact_section_title}
-					</h3>
-				{/if}
+			<div class="mt-16">
+				{#if isFilled.image(primary.cta_image)}
+					<div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1fr] lg:gap-16">
+						<div class="relative mx-auto w-full max-w-[34rem] lg:mx-0">
+							<div class="cta-image-shell overflow-hidden bg-neutral-100">
+								<PrismicImage field={primary.cta_image} class="h-full w-full object-cover" />
+							</div>
+						</div>
 
-				{#if isFilled.keyText(primary.contact_section_description)}
-					<p class="mt-3 max-w-2xl leading-7 text-neutral-700">
-						{primary.contact_section_description}
-					</p>
-				{/if}
+						<div>
+							{#if isFilled.keyText(primary.contact_section_title)}
+								<h3 class="text-display-lg max-w-3xl font-semibold text-[#252a3a]">
+									{primary.contact_section_title}
+								</h3>
+							{/if}
 
-				{#if (isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)) || (isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text))}
-					<div class="mt-6 flex flex-col gap-3 sm:flex-row">
-						{#if isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)}
-							<PrismicLink field={primary.contact_button_1_link} class="btn-primary focus-ring">
-								{primary.contact_button_1_text}
-							</PrismicLink>
+							<div class="mt-8 flex items-center gap-5">
+								<span class="h-0.5 w-20 shrink-0 bg-primary-600/55"></span>
+								<p class="text-2xl font-semibold leading-8 text-[#252a3a]">
+									{copy.common.ctaIntro}
+								</p>
+							</div>
+
+							{#if isFilled.keyText(primary.contact_section_description)}
+								<p class="mt-8 max-w-3xl text-xl leading-9 text-neutral-800">
+									{primary.contact_section_description}
+								</p>
+							{/if}
+
+							{#if (isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)) || (isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text))}
+								<div class="mt-9 flex flex-col gap-4 sm:flex-row">
+									{#if isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)}
+										<PrismicLink
+											field={primary.contact_button_1_link}
+											class="focus-ring inline-flex min-h-14 items-center justify-center rounded-md bg-[#252a3a] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#1d2230] sm:min-w-56"
+										>
+											{primary.contact_button_1_text}
+										</PrismicLink>
+									{/if}
+
+									{#if isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text)}
+										<PrismicLink
+											field={primary.contact_button_2_link}
+											class="focus-ring inline-flex min-h-14 items-center justify-center rounded-md bg-primary-500 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-primary-600 sm:min-w-56"
+										>
+											{primary.contact_button_2_text}
+										</PrismicLink>
+									{/if}
+								</div>
+							{/if}
+						</div>
+					</div>
+				{:else}
+					<div class="mx-auto max-w-4xl">
+						{#if isFilled.keyText(primary.contact_section_title)}
+							<h3 class="text-display-lg font-semibold text-[#252a3a]">
+								{primary.contact_section_title}
+							</h3>
 						{/if}
 
-						{#if isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text)}
-							<PrismicLink field={primary.contact_button_2_link} class="btn-secondary focus-ring">
-								{primary.contact_button_2_text}
-							</PrismicLink>
+						{#if isFilled.keyText(primary.contact_section_description)}
+							<p class="mt-6 max-w-3xl text-xl leading-9 text-neutral-800">
+								{primary.contact_section_description}
+							</p>
+						{/if}
+
+						{#if (isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)) || (isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text))}
+							<div class="mt-8 flex flex-col gap-4 sm:flex-row">
+								{#if isFilled.link(primary.contact_button_1_link) && isFilled.keyText(primary.contact_button_1_text)}
+									<PrismicLink
+										field={primary.contact_button_1_link}
+										class="focus-ring inline-flex min-h-14 items-center justify-center rounded-md bg-[#252a3a] px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-[#1d2230]"
+									>
+										{primary.contact_button_1_text}
+									</PrismicLink>
+								{/if}
+
+								{#if isFilled.link(primary.contact_button_2_link) && isFilled.keyText(primary.contact_button_2_text)}
+									<PrismicLink
+										field={primary.contact_button_2_link}
+										class="focus-ring inline-flex min-h-14 items-center justify-center rounded-md border border-primary-800/35 bg-white px-8 py-3 text-base font-semibold text-primary-900 transition-colors hover:bg-primary-50"
+									>
+										{primary.contact_button_2_text}
+									</PrismicLink>
+								{/if}
+							</div>
 						{/if}
 					</div>
 				{/if}

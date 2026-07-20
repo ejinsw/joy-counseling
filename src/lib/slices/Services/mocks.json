@@ -19,6 +19,32 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
+						"image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+								"width": 3992,
+								"height": 2992
+							},
+							"url": "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+							"width": 3992,
+							"height": 2992,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"alt": "Two people holding hands",
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
 						"title",
 						{
 							"__TYPE__": "FieldContent",
@@ -46,25 +72,6 @@
 							"__TYPE__": "FieldContent",
 							"value": "couple",
 							"type": "Select"
-						}
-					],
-					[
-						"cta_text",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "brother",
-							"type": "Text"
-						}
-					],
-					[
-						"cta_link",
-						{
-							"key": "f14b88ef-bc26-4c81-a83c-da21d1a7d21b",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev"
-							}
 						}
 					]
 				]

@@ -14,6 +14,7 @@ type UiText = {
 		home: string;
 		about: string;
 		contact: string;
+		schedule: string;
 		mainNavigation: string;
 		toggleNavigation: string;
 	};
@@ -22,6 +23,7 @@ type UiText = {
 		modalBrand: string;
 		details: string;
 		readMore: string;
+		ctaIntro: string;
 	};
 	footer: {
 		pages: string;
@@ -56,6 +58,11 @@ type UiText = {
 		consent: string;
 		submitting: string;
 		sendMessage: string;
+		scheduleTitle: string;
+		formOptionTitle: string;
+		headwayOptionTitle: string;
+		headwayAria: string;
+		backToOptions: string;
 		failure: string;
 		successTitle: string;
 		successBody: string;
@@ -75,6 +82,7 @@ export const uiText: Record<Locale, UiText> = {
 			home: 'Home',
 			about: 'About Us',
 			contact: 'Contact',
+			schedule: 'Schedule',
 			mainNavigation: 'Main navigation',
 			toggleNavigation: 'Toggle navigation menu'
 		},
@@ -82,7 +90,8 @@ export const uiText: Record<Locale, UiText> = {
 			close: 'Close',
 			modalBrand: 'J.O.Y. Counseling',
 			details: 'Details',
-			readMore: 'Read more'
+			readMore: 'Read more',
+			ctaIntro: "We've made getting started easy."
 		},
 		footer: {
 			pages: 'Pages',
@@ -118,6 +127,11 @@ export const uiText: Record<Locale, UiText> = {
 				'I understand that this form is secure and my information will be kept confidential. I consent to being contacted about scheduling an appointment.',
 			submitting: 'Submitting...',
 			sendMessage: 'Send Message',
+			scheduleTitle: 'Choose how to schedule',
+			formOptionTitle: 'Manual',
+			headwayOptionTitle: 'Continue with Headway',
+			headwayAria: 'Schedule counseling through Headway',
+			backToOptions: 'Back',
 			failure: 'Failed to send message. Please try again or contact us directly.',
 			successTitle: 'Thank You for Reaching Out',
 			successBody:
@@ -137,6 +151,7 @@ export const uiText: Record<Locale, UiText> = {
 			home: '홈',
 			about: '소개',
 			contact: '문의',
+			schedule: '예약',
 			mainNavigation: '주요 내비게이션',
 			toggleNavigation: '메뉴 열기'
 		},
@@ -144,7 +159,8 @@ export const uiText: Record<Locale, UiText> = {
 			close: '닫기',
 			modalBrand: '조이 상담 센터',
 			details: '자세히',
-			readMore: '더 보기'
+			readMore: '더 보기',
+			ctaIntro: '시작하실 수 있도록 쉽게 준비했습니다.'
 		},
 		footer: {
 			pages: '페이지',
@@ -180,6 +196,11 @@ export const uiText: Record<Locale, UiText> = {
 				'이 양식이 안전하게 처리되며 제 정보가 기밀로 보호된다는 점을 이해합니다. 예약 안내를 위해 연락받는 것에 동의합니다.',
 			submitting: '전송 중...',
 			sendMessage: '보내기',
+			scheduleTitle: '예약 방법을 선택해 주세요',
+			formOptionTitle: '직접 문의',
+			headwayOptionTitle: 'Headway로 진행하기',
+			headwayAria: 'Headway에서 상담 예약하기',
+			backToOptions: '뒤로',
 			failure: '메시지를 보내지 못했습니다. 다시 시도하시거나 직접 연락해 주세요.',
 			successTitle: '문의해 주셔서 감사합니다',
 			successBody:

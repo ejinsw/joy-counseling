@@ -53,10 +53,10 @@
 }
 
 :root {
-	--page: #f5f7ef;
-	--surface: #fbfcf8;
-	--surface-soft: #eaf4ee;
-	--border: #dfe8d5;
+	--page: #ffffff;
+	--surface: #ffffff;
+	--surface-soft: #f7f4ec;
+	--border: #e4dfd2;
 	--text: #20251d;
 	--text-muted: #59634f;
 	--accent: #3c7864;
@@ -74,9 +74,7 @@
 
 	body {
 		margin: 0;
-		background:
-			linear-gradient(180deg, rgb(251 252 248 / 0.98), rgb(245 247 239 / 0.98)),
-			var(--page);
+		background: var(--page);
 		color: var(--text);
 		font-family: var(--font-family-sans);
 		font-weight: 400;
@@ -154,7 +152,7 @@
 	}
 
 	.btn-secondary {
-		@apply inline-flex items-center justify-center gap-2 rounded-md border border-primary-800/50 bg-[#fbfcf8] px-6 py-3 text-sm font-semibold text-primary-900 transition-colors duration-150 hover:bg-primary-50 active:bg-primary-100 disabled:pointer-events-none disabled:opacity-60;
+		@apply inline-flex items-center justify-center gap-2 rounded-md border border-primary-800/50 bg-[#fffdf8] px-6 py-3 text-sm font-semibold text-primary-900 transition-colors duration-150 hover:bg-primary-50 active:bg-primary-100 disabled:pointer-events-none disabled:opacity-60;
 	}
 
 	.text-display,
@@ -176,7 +174,7 @@
 	}
 
 	.card-elevated {
-		@apply rounded-md border border-neutral-200 bg-[#fbfcf8] shadow-none;
+		@apply rounded-md border border-neutral-200 bg-[#fffdf8] shadow-none;
 	}
 
 	.form-label {
@@ -185,7 +183,7 @@
 
 	.form-input,
 	.form-textarea {
-		@apply w-full rounded-md border border-neutral-300 bg-[#fbfcf8] px-4 py-3 text-base text-neutral-900 transition-colors duration-150 placeholder:text-neutral-600 focus:border-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-200;
+		@apply w-full rounded-md border border-neutral-300 bg-[#fffdf8] px-4 py-3 text-base text-neutral-900 transition-colors duration-150 placeholder:text-neutral-600 focus:border-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-200;
 	}
 
 	.form-textarea {
@@ -237,6 +235,16 @@
 		@apply mb-2;
 	}
 
+	.about-image-shell {
+		aspect-ratio: 4 / 5;
+		border-radius: 0 13rem 1rem 0;
+	}
+
+	.cta-image-shell {
+		aspect-ratio: 4 / 5;
+		border-radius: 0 13rem 1rem 0;
+	}
+
 	.healing-gradient,
 	.calm-gradient,
 	.warm-gradient,
@@ -245,7 +253,7 @@
 	}
 
 	.glass-card {
-		@apply rounded-md border border-neutral-200 bg-[#fbfcf8] shadow-none;
+		@apply rounded-md border border-neutral-200 bg-[#fffdf8] shadow-none;
 		backdrop-filter: none;
 	}
 
@@ -270,6 +278,20 @@
 		opacity: 1;
 		transform: none;
 		animation: none;
+	}
+}
+
+@media (max-width: 767px) {
+	@layer components {
+		.about-image-shell {
+			aspect-ratio: 4 / 3;
+			border-radius: 0.75rem 6rem 0.75rem 0.75rem;
+		}
+
+		.cta-image-shell {
+			aspect-ratio: 4 / 3;
+			border-radius: 0.75rem 6rem 0.75rem 0.75rem;
+		}
 	}
 }
 
