@@ -19,11 +19,6 @@
 	const year = new Date().getFullYear();
 
 	const copy = $derived(uiText[locale]);
-	const legalLinks = $derived([
-		{ label: copy.footer.legal.privacy, href: localizedPath('/privacy', locale) },
-		{ label: copy.footer.legal.terms, href: localizedPath('/terms', locale) },
-		{ label: copy.footer.legal.hipaa, href: localizedPath('/hipaa', locale) }
-	]);
 	const fallbackQuickLinks = $derived([
 		localizedPath('/', locale),
 		localizedPath('/about', locale),
@@ -133,14 +128,6 @@
 			class="flex flex-col gap-4 border-t border-neutral-200 py-5 text-sm text-neutral-600 md:flex-row md:items-center md:justify-between"
 		>
 			<p>Copyright {year} {settings?.company_name}. {copy.footer.copyrightSuffix}</p>
-
-			<nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Legal">
-				{#each legalLinks as link}
-					<a href={link.href} class="focus-ring rounded-md hover:text-primary-900">
-						{link.label}
-					</a>
-				{/each}
-			</nav>
 		</div>
 	</div>
 </footer>
